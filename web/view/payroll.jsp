@@ -73,56 +73,6 @@
                                 </button></td>
                             <td>5400</td>    
                         </tr>
-                        <tr>
-                            <td>Morales Arnold</td>
-                            <td>Esclavo</td>
-                            <td><button style="background: #3d5afe" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                                    <i class="material-icons">person</i>
-                                </button></td>
-
-                            <td>850</td>
-                            <td>12</td>
-                            <td><button style="background: #76ff03" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                                    <i class="material-icons">trending_up</i>
-                                </button></td>
-
-                            <td>34</td>
-                            <td>54</td>
-                            <td><button style="background: #7b1fa2" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                                    <i class="material-icons">trending_down</i>
-                                </button></td>
-
-                            <td>54</td>
-                            <td><button style="background: #f4511e"  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                                    <i class="material-icons">attach_money</i>
-                                </button></td>
-                            <td>5400</td>   
-                        </tr>
-                        <tr>
-                            <td>Exebio Hans</td>
-                            <td>Esclavo</td>
-                            <td><button style="background: #3d5afe" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                                    <i class="material-icons">person</i>
-                                </button></td>
-
-                            <td>850</td>
-                            <td>12</td>
-                            <td><button style="background: #76ff03" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                                    <i class="material-icons">trending_up</i>
-                                </button></td>
-
-                            <td>34</td>
-                            <td>54</td>
-                            <td><button style="background: #7b1fa2" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                                    <i class="material-icons">trending_down</i>
-                                </button></td>
-
-                            <td>54</td>
-                            <td><button style="background: #f4511e"  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                                    <i class="material-icons">attach_money</i>
-                                </button></td>
-                            <td>5400</td>   
-                        </tr>
                     </tbody>
 
                 </table>    
