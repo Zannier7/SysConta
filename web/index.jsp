@@ -36,7 +36,7 @@
                 </nav>
             </div>
             <main class="mdl-layout__content">
-                <iframe 
+                <iframe src="view/main.jsp"
                     name="frame" id="idframe" onload="loadFrame(this.contentWindow.location);"
                     style="width: 100%;height: 660px;overflow-y: hidden;border: none">
             </iframe>
