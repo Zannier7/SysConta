@@ -9,7 +9,7 @@
 <html lang="es">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>        
+        <title>SysConta 1.0</title>        
         <script src="resources/jquery-2.2.3.min.js" type="text/javascript"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
@@ -147,12 +147,13 @@
             var user = $("#iuser").val();
             var pass = $("#ipass").val();
             if (user != "" && pass != "") {
-                var url = "login?opc=1";
+                /*var url = "login?opc=1";
                 var data = "user=" + user;
                 data += "&pass=" + pass;
-                $.post(url, data, function (objJson) {
+                $.post(url, data), function (objJson) {
                     alert(objJson.rpta);
-                });
+                });*/
+            location.href="view/main.jsp";
             }
         }
 
