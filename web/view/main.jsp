@@ -37,7 +37,7 @@
         <script>
             $(document).ready(function(){
                 $("#planilla").click(function(){
-                    location.href="planilla.jsp";
+                    location.href="../index.jsp";
                 });
                 $("#config").click(function(){
                     location.href="settings.jsp";
