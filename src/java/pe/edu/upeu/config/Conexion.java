@@ -17,7 +17,7 @@ public class Conexion {
     private static final String url = "jdbc:mysql://localhost/dbconta";
     private static final String driver = "com.mysql.jdbc.Driver";
     private static final String user = "root";
-    private static final String clave = "root";
+    private static final String clave = "";
     private static Connection conn = null;
 
     public static Connection getConexion() {

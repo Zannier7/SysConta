@@ -57,6 +57,22 @@ public class RegisterController extends HttpServlet {
                             break;
                     }
                     break;
+                case 2:
+                    switch (tipe){//CONTRATOS
+                        case "registrar":
+                            String nombre=request.getParameter("nombre");
+                            String regdni=request.getParameter("dni");
+                            String ap=request.getParameter("ap");
+                            String cargo=request.getParameter("cargo");
+                            String fini=request.getParameter("fini");
+                            String ffin=request.getParameter("ffin");
+                            String hrlab=request.getParameter("hrlab");
+                            String asignf=request.getParameter("asignf");
+                            String sbase=request.getParameter("sbase");
+                            System.out.println(asignf);
+                            System.out.println("Hola "+asignf);
+                    }
+                    break;
             }
         } catch (Exception e) {
             e.printStackTrace();
