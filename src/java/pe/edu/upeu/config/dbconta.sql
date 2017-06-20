@@ -310,3 +310,30 @@ CREATE TABLE `usuario` (
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2017-06-20  9:48:10
+delimiter $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `createEmpresa`(empresai varchar(64))
+begin
+    declare idp integer;
+        start transaction;
+        insert into empresa values(null,empresai);        
+        select max(idempresa) as idp from empresa;
+        commit;
+end
+delimiter $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `createPersona`(nombresi varchar(64), apellidosi varchar(64),
+dnii varchar(10))
+begin
+    declare idper integer;
+        start transaction;
+        insert into persona values(null,nombresi,apellidosi,dnii);
+        select max(idpersona) as idper from persona;
+        commit;
+end
+delimiter $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `userROOT`(useri varchar(64),passi varchar(64),idu integer,idp integer)
+begin
+        start transaction;
+        insert into usuario values(null,useri,passi,idu,idp,1);
+        commit;
+        select 1 as result;
+end
