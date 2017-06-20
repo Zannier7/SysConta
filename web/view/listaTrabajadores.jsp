@@ -33,7 +33,7 @@
                         <div class="box-header">
                             <h3 class="box-title">Lista de Trabajadores Contratados</h3>
                         </div>
-                        <table class="table table-bordered table-striped" style="text-align:center">
+                        <table  class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--3dp" style="text-align:center">
                             <tr><td><strong>NOMBRES</strong></td>
                                 <td><strong>APELLIDOS</strong></td>
                                 <td><strong>DNI</strong></td>
@@ -48,18 +48,18 @@
                                 <td><strong>BONO</strong></td> </tr>
                             <% String lista[][] = ContratoDAO.listarContrato();%>
                             <%for (int i = 0   ; i < lista.length; i++) {%>
-                            <tr><td><%=lista[i][0]%></td>
-                                <td><%=lista[i][1]%></td>
-                                <td><%=lista[i][2]%></td>
-                                <td><%=lista[i][3]%></td>
-                                <td><%=lista[i][4]%></td>
-                                <td><%=lista[i][5]%></td>
-                                <td><%=lista[i][6]%></td>
-                                <td><%=lista[i][7]%></td>
-                                <td><%=lista[i][8]%></td>
-                                <td><%=lista[i][9]%></td>
-                                <td><%=lista[i][10]%></td>
-                                <td><%=lista[i][11]%></td>
+                            <tr><td style="text-align: center"><%=lista[i][0]%></td>
+                                <td style="text-align: center"><%=lista[i][1]%></td>
+                                <td style="text-align: center"<%=lista[i][2]%></td>
+                                <td style="text-align: center"><%=lista[i][3]%></td>
+                                <td style="text-align: center"><%=lista[i][4]%></td>
+                                <td style="text-align: center"><%=lista[i][5]%></td>
+                                <td style="text-align: center"><%=lista[i][6]%></td>
+                                <td style="text-align: center"><%=lista[i][7]%></td>
+                                <td style="text-align: center"><%=lista[i][8]%></td>
+                                <td style="text-align: center"><%=lista[i][9]%></td>
+                                <td style="text-align: center"><%=lista[i][10]%></td>
+                                <td style="text-align: center"><%=lista[i][11]%></td>
                             </tr>
                            <% }%>  
                         </table>

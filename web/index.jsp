@@ -22,17 +22,11 @@
             <header class="mdl-layout__header">
                 <!-- Tabs -->
                 <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-<<<<<<< HEAD
-                    <a href="view/payroll.jsp" target="frame" class="mdl-layout__tab is-active">Planilla</a>
-                    <a href="view/settings.jsp" target="frame" class="mdl-layout__tab">Configuraciones</a>
-                    <a href="view/contract.jsp" target="frame" class="mdl-layout__tab">Registro de Trabajadores</a>
-                     <a href="view/listaTrabajadores.jsp" target="frame" class="mdl-layout__tab">Data Trabajadores</a>
-=======
                     <a href="view/info.jsp" target="frame" class="mdl-layout__tab l1 is-active" onclick="ch('l1')">Info</a>
                     <a href="view/payroll.jsp" target="frame" class="mdl-layout__tab l2" onclick="ch('l2')">Planilla</a>
                     <a href="view/settings.jsp" target="frame" class="mdl-layout__tab l3" onclick="ch('l3')">Configuraciones</a>
                     <a href="view/contract.jsp" target="frame" class="mdl-layout__tab l4" onclick="ch('l4')">Contratos</a>
->>>>>>> origin/master
+                    <a href="view/listaTrabajadores.jsp" target="frame" class="mdl-layout__tab l4" onclick="ch('l4')">Data Trabajadores</a>
                 </div>
             </header>
             <script>
