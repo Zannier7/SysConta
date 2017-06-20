@@ -16,6 +16,8 @@
         <link rel="stylesheet" href="https://cdn.rawgit.com/CreativeIT/getmdl-select/master/getmdl-select.min.css">
         <script defer src="https://cdn.rawgit.com/CreativeIT/getmdl-select/master/getmdl-select.min.js"></script>
         <script src="../resources/jquery-2.2.3.min.js" type="text/javascript"></script>
+        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+        <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     </head>
     <body>
     <center>
@@ -81,6 +83,31 @@
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                 <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="hrlab" id="hrlab">
                                 <label class="mdl-textfield__label" for="hrlab">Horas Laborales</label>
+                                <span class="mdl-textfield__error">¡No es un número!</span>
+                            </div>
+                        </div>
+                         <div style="width: 33%;float: right">
+                         
+                              
+                                <label for="sample1" class="text">Asignación Familiar</label>
+                                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"  for="switch-1">
+                                <div style="margin-right: 100px;"> <input type="checkbox" id="switch-1" class="mdl-switch__input" checked></div>
+                                <span class="mdl-switch__label"></span>
+                                 </label>
+                           
+                        </div>
+                        
+                        <div style="width: 33%;float: left">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="date" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+                                <label class="mdl-textfield__label" for="sample4">Fecha de Salida</label>
+                                <span class="mdl-textfield__error">¡No es un número!</span>
+                            </div>
+                        </div>
+                        <div style="width: 33%;float: right">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="date" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+                                <label class="mdl-textfield__label" for="sample4">Fecha de Ingreso</label>
                                 <span class="mdl-textfield__error">¡No es un número!</span>
                             </div>
                         </div>

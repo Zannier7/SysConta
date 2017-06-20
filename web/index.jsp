@@ -26,6 +26,7 @@
                     <a href="view/payroll.jsp" target="frame" class="mdl-layout__tab l2" onclick="ch('l2')">Planilla</a>
                     <a href="view/settings.jsp" target="frame" class="mdl-layout__tab l3" onclick="ch('l3')">Configuraciones</a>
                     <a href="view/contract.jsp" target="frame" class="mdl-layout__tab l4" onclick="ch('l4')">Contratos</a>
+                    <a href="view/listaTrabajadores.jsp" target="frame" class="mdl-layout__tab l4" onclick="ch('l4')">Data Trabajadores</a>
                 </div>
             </header>
             <script>
