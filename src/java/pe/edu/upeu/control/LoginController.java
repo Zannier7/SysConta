@@ -89,7 +89,7 @@ public class LoginController extends HttpServlet {
                     HttpSession session = request.getSession();
                     session.setAttribute("idusuario", h.get("idusuario"));
                     session.setAttribute("idrol", h.get("idrol"));
-                    dispatcher = getServletContext().getRequestDispatcher("/view/main.jsp");
+                    dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
                     dispatcher.forward(request, response);
                 } else {
                     dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
