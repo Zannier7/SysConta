@@ -5,8 +5,9 @@
  */
 package pe.edu.upeu.test;
 
+import java.util.List;
 import pe.edu.upeu.config.Conexion;
-
+import pe.edu.upeu.dao.ContratoDAO;
 /**
  *
  * @author Leandro Burgos
@@ -17,9 +18,12 @@ public class testSettings {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        testConnection();
+        //testConnection();
+        //listarA();
+        leer();
+       
     }
- 
+ public static ContratoDAO hD = new ContratoDAO();
     public static void testConnection() {
         if (Conexion.getConexion()!=null) {
             System.out.println("Conectado");
@@ -28,5 +32,26 @@ public class testSettings {
         }
     }
     
-    
+      public static void listarA() {
+        String[][] datos = hD.listarContrato();
+        try {
+            for (String[] dato : datos) {
+                int a = 0;
+                while (dato[a] != null) {
+                    System.out.println(dato[a]);
+                    a++;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error " + e);
+        }
+    }
+      public static void leer(){
+        String[][] p=hD.listarContrato();
+        for (String[] dato : p) {
+            System.out.println(dato[1]);
+            System.out.println(dato[2]);
+            System.out.println(dato[3]);
+        }    
+    }
 }

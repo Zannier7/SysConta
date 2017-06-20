@@ -24,6 +24,7 @@
                     <a href="view/payroll.jsp" target="frame" class="mdl-layout__tab is-active">Planilla</a>
                     <a href="view/settings.jsp" target="frame" class="mdl-layout__tab">Configuraciones</a>
                     <a href="view/contract.jsp" target="frame" class="mdl-layout__tab">Registro de Trabajadores</a>
+                     <a href="view/listaTrabajadores.jsp" target="frame" class="mdl-layout__tab">Data Trabajadores</a>
                 </div>
             </header>
             <div class="mdl-layout__drawer">
