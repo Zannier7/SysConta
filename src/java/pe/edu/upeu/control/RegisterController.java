@@ -10,22 +10,20 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import pe.edu.upeu.dao.UsuarioDAO;
+import pe.edu.upeu.dao.RegistroDAO;
 
 /**
  *
  * @author Leandro Burgos
  */
-public class LoginController extends HttpServlet {
+public class RegisterController extends HttpServlet {
 
     Map<String, Object> mp = new HashMap<>();
-    UsuarioDAO uO = new UsuarioDAO();
+    RegistroDAO rD = new RegistroDAO();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,15 +36,37 @@ public class LoginController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("application/json;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        int opc = Integer.parseInt(request.getParameter("opc"));
+        String tipe = request.getParameter("tipe");
+        String name, ape, dni, user, pass, emp;
         try {
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
-            dispatcher.forward(request, response);
-        } catch (ServletException | IOException e) {
-            System.out.println("#ERROR EN EL SERVIDOR - LOGIN CONTROL:" + e);
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/error/errorServer.html");
-            dispatcher.forward(request, response);
+            switch (opc) {
+                case 1:
+                    switch (tipe) {//REGISTRO DE ROOT
+                        case "userRoot":
+                            emp = request.getParameter("emp");
+                            name = request.getParameter("name");
+                            ape = request.getParameter("ape");
+                            dni = request.getParameter("dni");
+                            user = request.getParameter("user");
+                            pass = request.getParameter("pass");
+                            System.out.println(emp+" "+name+" "+ape+" "+dni+" "+user+" "+pass);
+                            mp.put("rpta", rD.UserROOT(name, ape, dni, user, pass, emp));
+                            break;
+                    }
+                    break;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            mp.put("error", e.getMessage());
         }
+
+        Gson gson = new Gson();
+        out.println(gson.toJson(mp));
+        out.flush();
+        out.close();
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -75,28 +95,7 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-        String a, b;
-        int opc;
-        a = request.getParameter("nuser");
-        b = request.getParameter("npass");
-        opc = Integer.parseInt(request.getParameter("opc"));
-        RequestDispatcher dispatcher;
-        switch (opc) {
-            case 1://validar
-                Map<String, Object> h = uO.validarUser(a, b);
-                if (h.get("idpersona") != null) {
-                    HttpSession session = request.getSession();
-                    session.setAttribute("idusuario", h.get("idusuario"));
-                    session.setAttribute("idrol", h.get("idrol"));
-                    dispatcher = getServletContext().getRequestDispatcher("/view/main.jsp");
-                    dispatcher.forward(request, response);
-                } else {
-                    dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
-                    dispatcher.forward(request, response);
-                }
-                break;
-        }
+        processRequest(request, response);
     }
 
     /**
