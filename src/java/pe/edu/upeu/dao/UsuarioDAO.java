@@ -25,14 +25,16 @@ public class UsuarioDAO {
 
     public Map<String, Object> validarUser(String user, String pass) {
         Map<String, Object> r = new HashMap<>();
-        sql = "";
+        sql = "select * from usuario where usuario=? and pass=?";
         try {
             ps = Conexion.getConexion().prepareStatement(sql);
             ps.setString(1, user);
             ps.setString(2, pass);
             rs = ps.executeQuery();
             while (rs.next()) {
-                r.put("", rs.getInt(""));
+                r.put("idpersona", rs.getInt("idpersona"));
+                r.put("idusuario", rs.getInt("idusuario"));
+                r.put("idrol", rs.getInt("idrol"));
                 return r;
             }
         } catch (SQLException ex) {

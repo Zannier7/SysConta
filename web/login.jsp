@@ -10,7 +10,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>SysConta 1.0</title>        
-        <script src="resources/jquery-2.2.3.min.js" type="text/javascript"></script>
+        <script src="resources/jquery-2.2.3.min.js" type="text/javascript"></script>        
+        <link href="resources/pnotify.custom.min.css" rel="stylesheet" type="text/css"/>
+        <script src="resources/pnotify.custom.min.js" type="text/javascript"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
         <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
@@ -26,23 +28,24 @@
             <div class="mdl-card__title">
                 <h2 class="mdl-card__title-text" style="color:#4a148c">Iniciar Sesión</h2>
             </div>
+            <form action="login" method="post">
             <div class="mdl-card__supporting-text">
-                <form>
+                <input type="hidden" value="1" name="opc">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" id="iuser">
+                        <input class="mdl-textfield__input" type="text" id="iuser" name="nuser">
                         <label class="mdl-textfield__label" for="iuser">Usuario</label>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="password" id="ipass">
+                        <input class="mdl-textfield__input" type="password" id="ipass" name="npass">
                         <label class="mdl-textfield__label" for="ipass">Contraseña</label>
                     </div>
-                </form>
             </div>
             <div class="mdl-card__actions mdl-card--border">
-                <center><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color: #4a148c" onclick="login()">
+                <center><button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color: #4a148c">
                         Entrar
-                    </a></center>
+                    </button></center>
             </div>
+            </form>
         </div>
         <div class="demo-card-wide mdl-card mdl-shadow--4dp mdl-cell mdl-cell--4-col">
             <div class="mdl-card__title">
@@ -62,7 +65,7 @@
                 </form>
             </div>
             <div class="mdl-card__actions mdl-card--border">
-                <center><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color: #4a148c" onclick="login()">
+                <center><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="regAdmin()" style="color: #4a148c">
                         Registrar
                     </a></center>
             </div>
@@ -119,8 +122,9 @@
                     <label class="mdl-textfield__label" for="iape">Apellidos</label>
                 </div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="text" id="idni">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="idni">
                     <label class="mdl-textfield__label" for="idni">DNI</label>
+                    <span class="mdl-textfield__error">Ingrese un número</span>
                 </div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <input class="mdl-textfield__input" type="text" id="iusadm">
@@ -137,25 +141,63 @@
             </form>
         </div>
         <div class="mdl-dialog__actions">
-            <button type="button" class="mdl-button">Registrar</button>
-            <button type="button" class="mdl-button close">Cerrar</button>
+            <button type="button" class="mdl-button close"> Listo</button>
+            <button type="button" class="mdl-button" onclick="clear()">Cerrar</button>
         </div>
     </dialog>   
     <script>
         //$(document).ready(function () {});
-        function login() {
+        function clear() {
+            $("#inamee").attr("value", "");
+            $("#iname").attr("value", "");
+            $("#iape").attr("value", "");
+            $("#idni").attr("value", "");
+            $("#iusadm").attr("value", "");
+            $("#ipassadm").attr("value", "");
+            $("#ipassadmc").attr("value", "");
+        }
+        function regAdmin() {
+            var emp = $("#inamee").val();
+            var name = $("#iname").val();
+            var ape = $("#iape").val();
+            var dni = $("#idni").val();
+            var user = $("#iusadm").val();
+            var pass = $("#ipassadm").val();
+            var passc = $("#ipassadmc").val();
+            if (name != "" && ape != "" && user != "" && pass != "" && passc != "" && pass == passc && emp != "") {
+                var url = "reg?opc=1&tipe=userRoot";
+                var data = "name=" + name;
+                data += "&ape=" + ape;
+                data += "&dni=" + dni;
+                data += "&user=" + user;
+                data += "&pass=" + pass;
+                data += "&emp=" + emp;
+                $.post(url, data, function (pack) {
+                    if (pack.rpta) {
+                        new PNotify({
+                            title: 'Correcto',
+                            text: 'Ya puede Iniciar Sesión',
+                            type: 'success'
+                        });
+                        clear();
+                    }
+                });
+
+            } else {
+                alert("Falta registrar algunos datos");
+            }
+
+        }
+        /*function login() {
             var user = $("#iuser").val();
             var pass = $("#ipass").val();
             if (user != "" && pass != "") {
-                /*var url = "login?opc=1";
+                var url = "login?opc=1";
                 var data = "user=" + user;
                 data += "&pass=" + pass;
-                $.post(url, data), function (objJson) {
-                    alert(objJson.rpta);
-                });*/
-            location.href="view/main.jsp";
+                $.post(url, data);                
             }
-        }
+        }*/
 
         var dialog = document.querySelector('dialog');
         var showDialogButton = document.querySelector('#show-dialog');
