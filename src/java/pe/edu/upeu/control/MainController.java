@@ -36,10 +36,16 @@ public class MainController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("application/json;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         RequestDispatcher dispatcher;
         String pagina = "";
-
+        int opc= Integer.parseInt(request.getParameter("opc"))                ;
+        switch(opc){
+            case 2:
+                pagina="/index.jsp";
+                break;
+        
+        }
         dispatcher = getServletContext().getRequestDispatcher(pagina);
         dispatcher.forward(request, response);
 
