@@ -11,10 +11,14 @@
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="resources/jquery-2.2.3.min.js" type="text/javascript"></script>        
+        <link href="resources/pnotify.custom.min.css" rel="stylesheet" type="text/css"/>
+        <script src="resources/pnotify.custom.min.js" type="text/javascript"></script>
         <script src="resources/jquery-2.2.3.min.js" type="text/javascript"></script>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <link href="resources/Material+Icons.css" rel="stylesheet" type="text/css"/>
+        <script src="resources/material.js" type="text/javascript"></script>
+        <link href="resources/material.min.css" rel="stylesheet" type="text/css"/>
+        <script src="resources/material.min.js" type="text/javascript"></script>
     </head>
     <body>
 
