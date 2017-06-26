@@ -28,8 +28,8 @@ public class PayrollDAO {
     public ArrayList<Map<String, ?>> validarPayroll() {
         ArrayList<Map<String, ?>> r = new ArrayList<>();
         sql = "select * from contrato c,sueldo s,remuneraciones r,descuentos d,aportes a,persona p "
-                + "where c.fechaingreso < '2017-02-03' "
-                + "and c.fechasalida > '2017-08-23'  "
+                + "where c.fechaingreso > '2017-04-05' "
+                + "and c.fechasalida < '2017-06-08' "
                 + "and p.idpersona=c.idpersona "
                 + "and c.idcontrato=s.idcontrato "
                 + "and d.idcontrato=c.idcontrato "
@@ -46,7 +46,7 @@ public class PayrollDAO {
                 d.put("idsueldo", rs.getInt("idcontrato"));
                 d.put("idremu", rs.getInt("idremuneracion"));
                 d.put("iddesc", rs.getInt("iddescuento"));
-                d.put("idaporte", rs.getInt("idaporte"));
+                d.put("idaporte", rs.getInt("idaportes"));
                 //DATA
                 d.put("persona", rs.getString("apellidos") + " " + rs.getString("nombres"));
                 d.put("fechai", rs.getString("fechaingreso"));
@@ -54,7 +54,7 @@ public class PayrollDAO {
                 d.put("cargo", rs.getString("cargo"));
                 d.put("asigfamiliar", rs.getString("asigfamiliar"));
                 d.put("dlab", rs.getString("dlaborales"));
-                d.put("hlab", rs.getString("hlaborables"));
+                d.put("hlab", rs.getString("hlaborales"));
                 d.put("sbasico", rs.getString("sueldobasico"));
                 d.put("fsueldo", rs.getString("fecha"));
                 d.put("hextra", rs.getString("hextras"));
@@ -62,7 +62,7 @@ public class PayrollDAO {
                 d.put("bono", rs.getString("bono"));
                 d.put("afp", rs.getString("afp"));
                 d.put("onp", rs.getString("onp"));
-                d.put("quintacategoria", rs.getString("quintacategoria"));
+                d.put("impuesto", rs.getString("quintacategoria"));
                 d.put("otros", rs.getString("otros"));
                 d.put("essalud", rs.getString("essalud"));
                 d.put("senati", rs.getString("senati"));

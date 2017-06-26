@@ -53,6 +53,7 @@
         });
 
         $(document).ready(function () {
+            console.log("hola");
             $("#noData").hide();
             $("#yesData").hide();
             validar();
@@ -63,6 +64,7 @@
             var data = 'opc=1';
             $.post(url, data, function (objJson) {
                 var a = objJson.lista;
+                console.log(a);
                 if (a.length > 0) {
                     listar(a);
                     $("#yesData").show();
@@ -78,22 +80,22 @@
             var m = '';
             for (var i = 0; i < lista.length; i++) {
                 m += '<tr>';
-                m += '<td>Burgos Leandro</td>';
-                m += '<td>Esclavo</td>';
-                m += '<td><button type="button" onclick="mod(1)" style="background: #3d5afe" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">';
+                m += '<td>'+lista[i].persona+'</td>';
+                m += '<td>'+lista[i].cargo+'</td>';
+                m += '<td><button type="button" onclick="mod(1)" style="background: #3d5afe;color:white" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">';
                 m += '<i class="material-icons">person</i>';
                 m += '</button></td>';
-                m += '<td>850</td>';
-                m += '<td>12</td>';
-                m += '<td><button type="button" onclick="mod(2)" style="background: #76ff03" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">';
+                m += '<td>'+lista[i].sbasico+'</td>';
+                m += '<td>1500</td>';
+                m += '<td><button type="button" onclick="mod(2)" style="background: #76ff03;color:white" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">';
                 m += '<i class="material-icons">trending_up</i>';
                 m += '</button></td>';
-                m += '<td>34</td>';
+                m += '<td>'+lista[i].impuesto+'</td>';
                 m += '<td>54</td>';
-                m += '<td><button type="button" onclick="mod(3)" id="btn3" style="background: #7b1fa2" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">';
+                m += '<td><button type="button" onclick="mod(3)" id="btn3" style="background: #7b1fa2;color:white" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">';
                 m += '<i class="material-icons">trending_down</i>';
                 m += '</button></td>';
-                m += '<td>54</td>';
+                m += '<td>'+lista[i].essalud+'</td>';
                 m += '<td>54</td>';
                 m += '<td>5400</td>';
                 m += '</tr>';
