@@ -16,7 +16,7 @@ import java.sql.Statement;
  * @author Leandro Burgos
  */
 public class Conexion {
-    private static final String url = "jdbc:mysql://localhost/bdconta";
+    private static final String url = "jdbc:mysql://localhost:3306/dbconta";
     private static final String driver = "com.mysql.jdbc.Driver";
     private static final String user = "root";
     private static final String clave = "root";

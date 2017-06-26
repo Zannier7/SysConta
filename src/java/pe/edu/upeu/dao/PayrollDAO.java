@@ -28,8 +28,8 @@ public class PayrollDAO {
     public ArrayList<Map<String, ?>> validarPayroll() {
         ArrayList<Map<String, ?>> r = new ArrayList<>();
         sql = "select * from contrato c,sueldo s,remuneraciones r,descuentos d,aportes a,persona p "
-                + "where c.fechaingreso < ? "
-                + "and c.fechasalida > ?  "
+                + "where c.fechaingreso < '2017-02-03' "
+                + "and c.fechasalida > '2017-08-23'  "
                 + "and p.idpersona=c.idpersona "
                 + "and c.idcontrato=s.idcontrato "
                 + "and d.idcontrato=c.idcontrato "
