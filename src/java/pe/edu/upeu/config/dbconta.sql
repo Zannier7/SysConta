@@ -296,6 +296,62 @@ CREATE TABLE `usuario` (
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+
+-- Estructura de tabla para la tabla `diario`
+-- 
+
+CREATE TABLE `diario` (
+  `iddescricion` int(11) NOT NULL auto_increment,
+  `idplancontable` int(11) NOT NULL,
+  `cdgdescripcion` varchar(50) NOT NULL,
+  `fecha` varchar(100) NOT NULL,
+  `descripcion` varchar(500) NOT NULL,
+  `tmovimiento` char(1) NOT NULL,
+  `cmovimiento` varchar(100) NOT NULL,
+  PRIMARY KEY  (`iddescricion`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+-- Estructura de tabla para la tabla `plancontable`
+-- 
+
+CREATE TABLE `plancontable` (
+  `idplancontable` int(11) NOT NULL auto_increment,
+  `codigo` int(11) NOT NULL,
+  `descripcion` varchar(500) NOT NULL,
+  PRIMARY KEY  (`idplancontable`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+
+-- 
+-- Volcar la base de datos para la tabla `plancontable`
+-- 
+
+INSERT INTO `plancontable` VALUES (1, 101, 'CAJA');
+INSERT INTO `plancontable` VALUES (2, 403, 'INSTITUCIONES PÚBLICAS');
+INSERT INTO `plancontable` VALUES (3, 4032, 'ONP');
+INSERT INTO `plancontable` VALUES (4, 4031, 'ESSALUD');
+INSERT INTO `plancontable` VALUES (5, 4033, 'SENATI');
+INSERT INTO `plancontable` VALUES (6, 4034, 'SENCICO');
+INSERT INTO `plancontable` VALUES (7, 4039, 'OTRAS INSTITUCIONES');
+INSERT INTO `plancontable` VALUES (8, 411, 'REMUNERACIONES POR PAGAR');
+INSERT INTO `plancontable` VALUES (9, 4111, 'SUELDOS Y SALARIOS POR PAGAR');
+INSERT INTO `plancontable` VALUES (10, 4112, 'COMISIONES POR PAGAR');
+INSERT INTO `plancontable` VALUES (11, 4113, 'REMUNERACIONES');
+INSERT INTO `plancontable` VALUES (12, 4114, 'GRATIFICACIONES POR PAGAR');
+INSERT INTO `plancontable` VALUES (13, 4115, 'VACACIONES POR PAGAR');
+INSERT INTO `plancontable` VALUES (14, 621, ' REMUNERACIONES');
+INSERT INTO `plancontable` VALUES (15, 6211, 'SUELDOS Y SALARIOS');
+INSERT INTO `plancontable` VALUES (16, 6212, 'COMISIONES');
+INSERT INTO `plancontable` VALUES (17, 6213, 'REMUNERACIONES');
+INSERT INTO `plancontable` VALUES (18, 6214, 'GRATIFICACIONES');
+INSERT INTO `plancontable` VALUES (19, 6215, 'VACACIONES');
+INSERT INTO `plancontable` VALUES (20, 627, 'SEGURIDAD, PREVENCION SOCIAL Y OTRAS CONTRIBUCIONES');
+
+
+
+
+
+
 --
 -- Dumping data for table `usuario`
 --

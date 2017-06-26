@@ -5,6 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
+<%@page import= "pe.edu.upeu.dao.PlanContableDAO"%>
+<%@page import= "pe.edu.upeu.model.Modelo_plancontable"%> 
+<jsp:useBean id="hola" scope="session" class="java.util.ArrayList"/>
 <!DOCTYPE html>
 <html lang="es" style="overflow-y: hidden">
     <head>
@@ -16,6 +20,27 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
         <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+         <script src="../resources/jquery-2.2.3.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function () {
+                $('#comboP').change(function () {
+                    $('#idplan').val($(this).val());
+                    var id = $("#idplan").val();
+                    alert(id);
+                    
+                      
+                    
+                });
+
+
+            });
+
+
+        </script>
+ 
+        
+        
+        
     </head>
 </head>
 <body>
@@ -62,8 +87,22 @@
                         <td style="text-align: center">1</td>
                         <td style="text-align: center">09/05/2017</td>
                         <td style="text-align: center">Por la Compra de Merca ;)</td>
-                        <td style="text-align: center">601</td>
-                        <td style="text-align: center">Merca ;)</td>
+                        <td style="text-align: center"><div class="form-group">
+                            <!--<label for="sel1">Select list:</label>-->
+                            <select class="form-control" id="comboP" >
+                                <% List<Modelo_plancontable> list = PlanContableDAO.listarPLANCONTABLE();%>
+                                <%for (int i = 0; i < list.size(); i++) {
+                                        Modelo_plancontable Mplan = new Modelo_plancontable();
+                                        Mplan = (Modelo_plancontable) list.get(i);%>
+                                <option class="mdl-menu__item"  value="<%= Mplan.getIdplancontable()%>"><%= Mplan.getCodigo()%></option> 
+
+
+                                <% }%>
+                                <input type="hidden" value="1" name="idplan" id="idplan"/>
+                            </select>
+
+                        </div></td>
+                        <td style="text-align: center">cargar merca</td>
                         <td style="text-align: center">500</td>
                         <td style="text-align: center">500</td>
                     </tr>
