@@ -42,7 +42,7 @@
                     <a href="#" class="mdl-button mdl-button--colored mdl-js-button" style="display:block;color: #b71c1c">Cárdex</a>
                 </div>
             </div>
-            <div id="ldiario" class="mdl-card mdl-shadow--8dp mdl-cell mdl-cell--4-col mdl-cell--middle mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="max-width: 256px;cursor: pointer">
+            <div id="ldiario" onclick="redirect('main?opc=1')" class="mdl-card mdl-shadow--8dp mdl-cell mdl-cell--4-col mdl-cell--middle mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="max-width: 256px;cursor: pointer">
                 <div class="mdl-card__title" style="background: #ff7961;text-align: center;display: block">
                     <i style="color: white; font-size: 140px" class="large material-icons">book</i>
                 </div>

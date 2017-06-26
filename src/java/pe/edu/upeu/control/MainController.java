@@ -39,15 +39,22 @@ public class MainController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         RequestDispatcher dispatcher;
         String pagina = "";
-        int opc= Integer.parseInt(request.getParameter("opc"))                ;
-        switch(opc){
-            case 2:
-                pagina="/index.jsp";
-                break;
+        int opc = Integer.parseInt(request.getParameter("opc"));
         
+        switch (opc) {
+            case 1:
+                pagina = "/view/diarybook.jsp";
+                dispatcher = getServletContext().getRequestDispatcher(pagina);
+                dispatcher.forward(request, response);
+                break;
+
+            case 2:
+                pagina = "/index.jsp";
+                dispatcher = getServletContext().getRequestDispatcher(pagina);
+                dispatcher.forward(request, response);
+                break;
+            
         }
-        dispatcher = getServletContext().getRequestDispatcher(pagina);
-        dispatcher.forward(request, response);
 
     }
 
