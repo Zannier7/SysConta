@@ -19,14 +19,14 @@
         <link href="resources/material.min.css" rel="stylesheet" type="text/css"/>
         <script src="resources/material.min.js" type="text/javascript"></script>
     </head>
-    <body style="background: #e53935">
+    <body style="background: #1976d2">
     <center><h1 style="color: white">SysConta 1.0</h1></center>
 
     <div class="mdl-cell mdl-cell--12-col mdl-grid">
         <div class="mdl-cell mdl-cell--2-col mdl-grid"></div>
         <div class="demo-card-wide mdl-card mdl-shadow--4dp mdl-cell mdl-cell--4-col">
             <div class="mdl-card__title">
-                <h2 class="mdl-card__title-text" style="color:#e53935">Iniciar Sesión</h2>
+                <h2 class="mdl-card__title-text" style="color:#1976d2">Iniciar Sesión</h2>
             </div>
             <form action="login" method="post">
                 <div class="mdl-card__supporting-text">
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="mdl-card__actions mdl-card--border">
-                    <center><button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color: #e53935">
+                    <center><button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color: #1976d2">
                             Entrar
                         </button></center>
                 </div>
@@ -49,7 +49,7 @@
         </div>
         <div class="demo-card-wide mdl-card mdl-shadow--4dp mdl-cell mdl-cell--4-col">
             <div class="mdl-card__title">
-                <h2 class="mdl-card__title-text" style="color: #e53935">Registra tu Empresa</h2>
+                <h2 class="mdl-card__title-text" style="color: #1976d2">Registra tu Empresa</h2>
             </div>
             <div class="mdl-card__supporting-text">
                 <form>
@@ -57,7 +57,7 @@
                         <input class="mdl-textfield__input" type="text" id="inamee">
                         <label class="mdl-textfield__label" for="iuser">Nombre de la Empresa</label>
                     </div>
-                    <button style="background: #e53935" id="show-dialog" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Usuario Administrador</button>
+                    <button style="background: #1976d2" id="show-dialog" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Usuario Administrador</button>
                     <br/><br/>
                     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
                         <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
@@ -66,7 +66,7 @@
                 </form>
             </div>
             <div class="mdl-card__actions mdl-card--border">
-                <center><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="regAdmin()" style="color: #e53935">
+                <center><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="regAdmin()" style="color: #1976d2">
                         Registrar
                     </a></center>
             </div>

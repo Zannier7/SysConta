@@ -17,8 +17,9 @@
         <script src="../resources/material.min.js" type="text/javascript"></script>
     </head>
     <body>
-        <h1>Planilla</h1>
+        
     <center><div class="mdl-cell mdl-cell--6-col mdl-grid">
+            <h1>Planilla</h1>
             <article>
                 Todas las empresas que  se encuentran dentro del ámbito de lo formal cuentan con una planilla de remuneraciones, 
                 planilla de jornales o como la  denominen en tu país; la gran mayoría suele llevar esta información en Excel ya que 
