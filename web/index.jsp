@@ -5,8 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="es" style="overflow-y: hidden">
+<!DOCTYPE html5>
+<html lang="es" style="height: 100%;overflow-y: hidden">
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
@@ -20,7 +20,7 @@
         <link href="resources/material.min.css" rel="stylesheet" type="text/css"/>
         <script src="resources/material.min.js" type="text/javascript"></script>
     </head>
-    <body>
+    <body style="height: 100%;">
 
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
             <header class="mdl-layout__header">
@@ -52,7 +52,7 @@
             <main class="mdl-layout__content">
                 <iframe src="view/info.jsp"
                         name="frame" id="idframe" onload="loadFrame(this.contentWindow.location);"
-                        style="width: 100%;height: 660px;overflow-y: hidden;border: none">
+                        style="overflow-y: hidden;border: none;width: 100%;height: 100%;">
                 </iframe>
             </main>
         </div>

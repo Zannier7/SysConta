@@ -23,7 +23,8 @@ import pe.edu.upeu.dao.PayrollDAO;
 public class PayrollController extends HttpServlet {
 
     Map<String, Object> mp = new HashMap<>();
-    PayrollDAO pd=new PayrollDAO();
+    PayrollDAO pd = new PayrollDAO();
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.

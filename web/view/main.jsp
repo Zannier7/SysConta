@@ -19,35 +19,35 @@
     <body>
         <div class="mdl-grid">
             <div id="config" class="mdl-card mdl-shadow--8dp mdl-cell mdl-cell--4-col mdl-cell--1-offset mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="max-width: 256px;cursor: pointer">
-                <div class="mdl-card__title" style="background: #512da8;text-align: center;display: block">
+                <div class="mdl-card__title" style="background: #d32f2f;text-align: center;display: block">
                     <i style="color: white; font-size: 140px" class="large material-icons">settings</i>
                 </div>
                 <div class="mdl-card__actions mdl-card--border">
-                    <a href="#" class="mdl-button mdl-button--colored mdl-js-button" style="display:block">Configuraciones</a>
+                    <a href="#" class="mdl-button mdl-button--colored mdl-js-button" style="display:block;color: #d32f2f">Configuraciones</a>
                 </div>
             </div>
             <div onclick="redirect('main?opc=2')" id="planilla" class="mdl-card mdl-shadow--8dp mdl-cell mdl-cell--4-col mdl-cell--middle mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="max-width: 256px;cursor: pointer">
-                <div class="mdl-card__title" style="background: #140078;text-align: center;display: block">
+                <div class="mdl-card__title" style="background: #ff5252;text-align: center;display: block">
                     <i style="color: white; font-size: 140px" class="large material-icons">people</i>
                 </div>
                 <div class="mdl-card__actions mdl-card--border">
-                    <a href="#" class="mdl-button mdl-button--colored mdl-js-button" style="display:block">Planilla</a>
+                    <a href="#" class="mdl-button mdl-button--colored mdl-js-button" style="display:block;color: #ff5252">Planilla</a>
                 </div>
             </div>
             <div id="cardex" class="mdl-card mdl-shadow--8dp mdl-cell mdl-cell--4-col mdl-cell--middle mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="max-width: 256px;cursor: pointer">
-                <div class="mdl-card__title" style="background: #8559da;text-align: center;display: block">
+                <div class="mdl-card__title" style="background: #b71c1c;text-align: center;display: block;">
                     <i style="color: white; font-size: 140px" class="large material-icons">playlist_add_check</i>
                 </div>
                 <div class="mdl-card__actions mdl-card--border">
-                    <a href="#" class="mdl-button mdl-button--colored mdl-js-button" style="display:block">Cárdex</a>
+                    <a href="#" class="mdl-button mdl-button--colored mdl-js-button" style="display:block;color: #b71c1c">Cárdex</a>
                 </div>
             </div>
             <div id="ldiario" class="mdl-card mdl-shadow--8dp mdl-cell mdl-cell--4-col mdl-cell--middle mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="max-width: 256px;cursor: pointer">
-                <div class="mdl-card__title" style="background: #5e35b1;text-align: center;display: block">
+                <div class="mdl-card__title" style="background: #ff7961;text-align: center;display: block">
                     <i style="color: white; font-size: 140px" class="large material-icons">book</i>
                 </div>
                 <div class="mdl-card__actions mdl-card--border">
-                    <a href="#" class="mdl-button mdl-button--colored mdl-js-button" style="display:block">Libro Diario</a>
+                    <a href="#" class="mdl-button mdl-button--colored mdl-js-button" style="display:block;color: #ff7961">Libro Diario</a>
                 </div>
             </div>
         </div>

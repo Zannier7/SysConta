@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html style="overflow-y: hidden">
+<html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
@@ -63,13 +63,13 @@
             var data = 'opc=1';
             $.post(url, data, function (objJson) {
                 var a = objJson.lista;
-                if (a.length <= 0) {
-                    $("#noData").show();
-                    $("#yesData").hide();
-                } else {
+                if (a.length > 0) {
                     listar(a);
                     $("#yesData").show();
                     $("#noData").hide();
+                } else {
+                    $("#noData").show();
+                    $("#yesData").hide();
                 }
             });
         }
