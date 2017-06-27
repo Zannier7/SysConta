@@ -138,6 +138,7 @@ DROP TABLE IF EXISTS `empresa`;
 CREATE TABLE `empresa` (
   `idempresa` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
+   ruc     varchar(40) NOT NULL,
   PRIMARY KEY (`idempresa`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

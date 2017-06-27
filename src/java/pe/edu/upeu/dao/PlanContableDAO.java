@@ -25,9 +25,10 @@ public class PlanContableDAO {
     static PreparedStatement ps;
     static Connection cn;
     static String sql;
+    
     static ResultSet rs;
 
-    public static  List<Modelo_plancontable> listarPLANCONTABLE() {
+    public static List<Modelo_plancontable> listarPLANCONTABLE() {
         Conexion oConexion = new Conexion();
 
         sql = "SELECT * FROM PLANCONTABLE";
@@ -49,12 +50,13 @@ public class PlanContableDAO {
         }
         return list;
     }
+
     public static List<Modelo_plancontable> listarid(int id) {
         List<Modelo_plancontable> lista = new ArrayList();
         Modelo_plancontable dto = new Modelo_plancontable();
-         sql = "SELECT * FROM PLANCONTABLE where IDPLANCONTABLE= ? ";
+        sql = "SELECT * FROM PLANCONTABLE where IDPLANCONTABLE= ? ";
         try {
-              cn = Conexion.getConexion();
+            cn = Conexion.getConexion();
             ps = cn.prepareStatement(sql);
             ps.setInt(1, id);
             rs = ps.executeQuery();
@@ -68,5 +70,33 @@ public class PlanContableDAO {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
         return lista;
+    }
+
+    public static String[][] listarPrueba(int id) {
+        
+        sql = "SELECT * FROM PLANCONTABLE where IDPLANCONTABLE= ? ";
+        
+        
+        String listarPrueba[][] = null;
+
+        //String[][] resultadoHistoProduct = new String[m][6];//apliar el 6
+        listarPrueba = new String[0][3];
+        try {
+            cn = Conexion.getConexion();
+            ps = cn.prepareStatement(sql);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            int contador = 0;
+            while (rs.next()) {
+                listarPrueba[contador][0] = (rs.getString("IDPLANCONTABLE"));
+                listarPrueba[contador][1] = (rs.getString("CODIGO"));
+                listarPrueba[contador][2] = (rs.getString("DESCRIPCION"));
+
+                contador++;
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al listar historial " + e);
+        }
+        return listarPrueba;
     }
 }
