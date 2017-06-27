@@ -40,7 +40,7 @@ public class MainController extends HttpServlet {
         RequestDispatcher dispatcher;
         String pagina = "";
         int opc = Integer.parseInt(request.getParameter("opc"));
-        
+
         switch (opc) {
             case 1:
                 pagina = "/view/diarybook.jsp";
@@ -53,7 +53,13 @@ public class MainController extends HttpServlet {
                 dispatcher = getServletContext().getRequestDispatcher(pagina);
                 dispatcher.forward(request, response);
                 break;
-            
+                
+            case 3:
+                pagina = "/view/configuraciones.jsp";
+                dispatcher = getServletContext().getRequestDispatcher(pagina);
+                dispatcher.forward(request, response);
+                break;
+
         }
 
     }
