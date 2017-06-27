@@ -475,7 +475,7 @@ CREATE TABLE `cargo` (
 );
 DROP TABLE IF EXISTS `contrato`;
 CREATE TABLE `contrato` (
-  `idcontrato` int(11) NOT NULL,
+  `idcontrato` int(11) NOT NULL AUTO_INCREMENT,
   `idpersona` int(11) NOT NULL,
   `fechaingreso` date NOT NULL,
   `fechasalida` date NOT NULL,
@@ -484,5 +484,6 @@ CREATE TABLE `contrato` (
   `dlaborales` varchar(1) NOT NULL,
   `hlaborales` varchar(20) NOT NULL,
   `sueldo` double NOT NULL,
-  `pension` char(2) NOT NULL
+  `pension` char(2) NOT NULL,
+  PRIMARY KEY (`idcontrato`)
 );
