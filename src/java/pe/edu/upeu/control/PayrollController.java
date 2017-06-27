@@ -44,6 +44,10 @@ public class PayrollController extends HttpServlet {
                 case 1://validar
                     mp.put("lista", pd.validarPayroll());
                     break;
+                case 2://listar un trabajador
+                    int id = Integer.parseInt(request.getParameter("id"));
+                    mp.put("trabajador", pd.listWorker(id));
+                    break;
             }
         } catch (Exception e) {
             e.printStackTrace();
