@@ -9,7 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>SysConta || UPeU</title>  
+        <link rel="shortcut icon" type="image/ico" href="resources/money.ico" />
         <script src="resources/jquery-2.2.3.min.js" type="text/javascript"></script>
         <link href="resources/Material+Icons.css" rel="stylesheet" type="text/css"/>
         <script src="resources/material.js" type="text/javascript"></script>
