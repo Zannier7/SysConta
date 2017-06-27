@@ -38,6 +38,10 @@
                     //alert(des);
                     $('#lb2').text(des1);
                 });
+                
+                var f= new Date()
+                var yy = f.getFullYear();
+                $('#fecha').val(yy);
             });
 
         </script>
@@ -65,7 +69,13 @@
 
                 <tbody>
                     <tr>
-                        <th style="font-size: 15px; text-align: center">2009</th>
+                        <th style="font-size: 15px">
+                           <form action="#">
+                                <div class="form-control">
+                                    <input class="mdl-textfield__input" type="text" id="fecha" disabled="" style="text-align: center"> 
+                                </div>
+                            </form>                         
+                        </th>
                         <th style="font-size: 15px; text-align: center">2015202635214</th>
                         <th style="font-size: 15px; text-align: center">Los Arnolds S.A</th>
                     </tr>
@@ -107,8 +117,26 @@
                                 </select>
                             </div>                  
                         </td>
-                        <td style="text-align: center"> asasa</td>
-                        <td style="text-align: center">asasas</td>
+                        <td style="text-align: center; width: 10px;">
+                            <form action="#">
+                                <div class="mdl-textfield mdl-js-textfield">
+                                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="debe">
+                                    <label class="mdl-textfield__label" for="debe">Debe</label>
+                                    <span class="mdl-textfield__error">Solo números!</span>
+                                </div>
+                            </form>
+
+                        </td>
+                        <td style="text-align: center">
+                            <form action="#">
+                                <div class="mdl-textfield mdl-js-textfield">
+                                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="haber">
+                                    <label class="mdl-textfield__label" for="haber">Haber</label>
+                                    <span class="mdl-textfield__error">Solo números!</span>
+                                </div>
+                            </form>
+
+                        </td>
                     </tr>
                     <tr>
                         <td style="text-align: center">1</td>
@@ -120,8 +148,8 @@
                                 <!--<label for="sel1">Select list:</label>-->
                                 <select class="form-control" id="combo2" >
                                     <%for (int i = 0; i < list.size(); i++) {
-                                      Modelo_plancontable Mplan = new Modelo_plancontable();
-                                      Mplan = (Modelo_plancontable) list.get(i);%>
+                                            Modelo_plancontable Mplan = new Modelo_plancontable();
+                                            Mplan = (Modelo_plancontable) list.get(i);%>
                                     <option style="text-align: center;" class="mdl-menu__item"  value="<%= Mplan.getCodigo()%>"><%= Mplan.getDescripcion()%></option> 
                                     <% }%>
                                     <input type="hidden" value="2" name="codigo2" id="codigo2"/>
