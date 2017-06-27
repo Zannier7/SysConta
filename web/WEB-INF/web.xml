@@ -37,7 +37,7 @@
         <url-pattern>/payroll</url-pattern>
     </servlet-mapping>
       <servlet-mapping>
-        <servlet-name>DiarioController</servlet-name>
+        <servlet-name>diarioController</servlet-name>
         <url-pattern>/diario</url-pattern>
     </servlet-mapping>
     
