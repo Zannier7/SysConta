@@ -483,5 +483,6 @@ CREATE TABLE `contrato` (
   `asigfamiliar` char(1) NOT NULL,
   `dlaborales` varchar(1) NOT NULL,
   `hlaborales` varchar(20) NOT NULL,
-  `sueldo` double NOT NULL
+  `sueldo` double NOT NULL,
+  `pension` char(2) NOT NULL
 );

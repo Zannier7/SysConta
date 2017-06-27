@@ -95,7 +95,14 @@
                             </label>
                         </div>
                         <div style="width: 33%;float: right">
-
+                            <select name="pension" id="pension" style="width: 95%;">
+                                <option value="1">AFP Integra</option>
+                                <option value="2">ONP</option>
+                                <option value="3">AFP Prima</option>
+                                <option value="4">AFP Horizonte</option>
+                                <option value="5">ProFuturo AFP</option>
+                                <option value="6">AFPnet - Pago Fácil</option>
+                            </select>
                         </div>
                         <div style="width: 33%;float: left">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -123,6 +130,7 @@
                 }
             });
             $("#listcargo").select2();
+            $("#pension").select2();
             $("#env").click(function () {
                 var nombre = $("#nombre").val();
                 var ap = $("#apellidos").val();
@@ -133,13 +141,14 @@
                 var cargo = $("#listcargo").val();
                 var dlab = $("#dlab").val();
                 var sbase = $("#sbase").val();
+                var pension = $("#pension").val();
                 var asigf;
                 if ($("#asignf").is(":checked")) {
                     asigf = 1;
                 } else {
                     asigf = 0;
                 }
-                if (nombre != "" && ap != "" && dni != "" && hrlab != "" && fini != "" && ffin != "" && cargo != "" && dlab != "" && asigf != "" && sbase != "") {
+                if (nombre != "" && ap != "" && dni != "" && hrlab != "" && fini != "" && ffin != "" && cargo != "" && dlab != "" && asigf != "" && sbase != "" && pension != "") {
                     var url = "../reg?opc=2&tipe=registrar";
                     var data = "nombre=" + nombre;
                     data += "&apellidos=" + ap;
@@ -151,6 +160,7 @@
                     data += "&dlab=" + dlab;
                     data += "&sbase=" + sbase;
                     data += "&asignf=" + asigf;
+                    data += "&pension=" + pension;
                     $.post(url, data, function (pack) {
                         if (pack.rpta != 0) {
                             new PNotify({

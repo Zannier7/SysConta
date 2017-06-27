@@ -83,14 +83,14 @@ public class ContratoDAO {
                 lista.add(m);
             }
         } catch (Exception e) {
-            System.out.println("Error al listar Equipos Disponibles " + e);
+            System.out.println("Error al listar cargos Disponibles " + e);
             return null;
         }finally{
             Conexion.cerrar();
         }
         return lista;
     }
-    public int gethired(String nombre, String dni,String ap,String idcargo, String fini,String ffin,String hrlab,String dlab,String asignf,String sbase) {
+    public int gethired(String nombre, String dni,String ap,String idcargo, String fini,String ffin,String hrlab,String dlab,String asignf,String sbase,String pension) {
         int n = 0;
         sql = "{CALL createPersona(?,?,?)}";
         try {
@@ -104,7 +104,7 @@ public class ContratoDAO {
             while(rs.next()){
                 idpersona=rs.getInt("idpersona");
             }
-            sql="insert into contrato(idpersona,fechaingreso,fechasalida,idcargo,asigfamiliar,dlaborales,hlaborales,sueldo) values (?,?,?,?,?,?,?,?)";
+            sql="insert into contrato(idpersona,fechaingreso,fechasalida,idcargo,asigfamiliar,dlaborales,hlaborales,sueldo,pension) values (?,?,?,?,?,?,?,?,?)";
             ps=cn.prepareStatement(sql);
             ps.setInt(1, idpersona);
             ps.setString(2, fini);
@@ -114,6 +114,7 @@ public class ContratoDAO {
             ps.setString(6, dlab);
             ps.setString(7, hrlab);
             ps.setDouble(8, Double.parseDouble(sbase));
+            ps.setString(9, pension);
             n=ps.executeUpdate();
         } catch (Exception ex) {
             System.out.println("Error al agregar contrato al registro " + ex);
