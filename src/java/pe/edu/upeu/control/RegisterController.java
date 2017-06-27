@@ -8,12 +8,14 @@ package pe.edu.upeu.control;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import pe.edu.upeu.dao.ContratoDAO;
 import pe.edu.upeu.dao.RegistroDAO;
 
 /**
@@ -24,6 +26,7 @@ public class RegisterController extends HttpServlet {
 
     Map<String, Object> mp = new HashMap<>();
     RegistroDAO rD = new RegistroDAO();
+    ContratoDAO cd=new ContratoDAO();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -63,13 +66,19 @@ public class RegisterController extends HttpServlet {
                             String nombre=request.getParameter("nombre");
                             String regdni=request.getParameter("dni");
                             String ap=request.getParameter("apellidos");
-                            String cargo=request.getParameter("cargo");
+                            String cargo=request.getParameter("idcargo");
                             String fini=request.getParameter("fini");
                             String ffin=request.getParameter("ffin");
                             String hrlab=request.getParameter("hrlab");
                             String dlab=request.getParameter("dlab");
                             String asignf=request.getParameter("asignf");
                             String sbase=request.getParameter("sbase");
+                            System.out.println("hola: "+asignf+", "+nombre+" "+regdni+" "+ap+" "+cargo+" "+fini+" "+ffin+" "+hrlab+" "+dlab+" "+sbase);
+                            mp.put("rpta",cd.gethired(nombre, regdni, ap, cargo, fini, ffin, hrlab, dlab, asignf, sbase));
+                            break;
+                        case "getcargo":
+                            mp.put("lista", cd.getcargo());
+                            break;
                             
                     }
                     break;

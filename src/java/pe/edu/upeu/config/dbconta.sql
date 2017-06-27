@@ -355,7 +355,7 @@ begin
         insert into empresa values(null,empresai);        
         select max(idempresa) as idp from empresa;
         commit;
-end
+end$$
 delimiter $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `createPersona`(nombresi varchar(64), apellidosi varchar(64),
 dnii varchar(10))
@@ -365,7 +365,7 @@ begin
         insert into persona values(null,nombresi,apellidosi,dnii);
         select max(idpersona) as idper from persona;
         commit;
-end
+end$$
 delimiter $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `userROOT`(useri varchar(64),passi varchar(64),idu integer,idp integer)
 begin
@@ -373,7 +373,7 @@ begin
         insert into usuario values(null,useri,passi,idu,idp,1);
         commit;
         select 1 as result;
-end
+end$$
 
 
 DROP TABLE IF EXISTS `aportes`;
@@ -466,3 +466,10 @@ INSERT INTO `usuario` VALUES (1,'root','root',1,1,1);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+CREATE TABLE `cargo` (
+  `idcargo` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) NOT NULL,
+  `comision` double NOT NULL,
+  PRIMARY KEY (`idcargo`)
+)
