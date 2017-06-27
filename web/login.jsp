@@ -9,7 +9,8 @@
 <html lang="es">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SysConta 1.0</title>        
+        <title>SysConta || UPeU</title>      
+        <link rel="shortcut icon" type="image/ico" href="resources/money.ico" />
         <script src="resources/jquery-2.2.3.min.js" type="text/javascript"></script>        
         <link href="resources/pnotify.custom.min.css" rel="stylesheet" type="text/css"/>
         <script src="resources/pnotify.custom.min.js" type="text/javascript"></script>
