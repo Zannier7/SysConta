@@ -76,7 +76,64 @@ function mod(tipo, id) {
         $("#contenidoM").empty();
         $("#contenidoM").append(s);
     }
+    if (tipo == 4) {
+        $("#titleM").empty();
+        $("#titleM").append("Totales");
+        var s = createContentTotal();
+        $("#contenidoM").empty();
+        $("#contenidoM").append(s);
+    }
     dialog.showModal();
+}
+
+function createContentTotal() {
+    var s = '<ul class="demo-list-two mdl-list">';
+
+    s += '<li class="mdl-list__item mdl-list__item--two-line">';
+    s += '<span class="mdl-list__item-primary-content">';
+    s += '<i class="material-icons mdl-list__item-avatar">trending_up</i>';
+    s += '<span>Remuneraciones</span>';
+    s += '<span class="mdl-list__item-sub-title" id="nafp"></span>';
+    s += '</span>';
+    s += '<span class="mdl-list__item-secondary-content">';
+    s += '<a class="mdl-list__item-secondary-action" id="iafp"></a>';
+    s += '</span>';
+    s += '</li>';
+
+    s += '<li class="mdl-list__item mdl-list__item--two-line">';
+    s += '<span class="mdl-list__item-primary-content">';
+    s += '<i class="material-icons mdl-list__item-avatar">trending_down</i>';
+    s += '<span>Descuentos</span>';
+    s += '<span class="mdl-list__item-sub-title"></span>';
+    s += '</span>';
+    s += '<span class="mdl-list__item-secondary-content">';
+    s += '<a class="mdl-list__item-secondary-action" id="impr"></a>';
+    s += '</span>';
+    s += '</li>';
+
+    s += '<li class="mdl-list__item mdl-list__item--two-line">';
+    s += '<span class="mdl-list__item-primary-content">';
+    s += '<i class="material-icons mdl-list__item-avatar">timeline</i>';
+    s += '<span>Aportes</span>';
+    s += '<span class="mdl-list__item-sub-title"></span>';
+    s += '</span>';
+    s += '<span class="mdl-list__item-secondary-content">';
+    s += '<a class="mdl-list__item-secondary-action" id="iother"></a>';
+    s += '</span>';
+    s += '</li>';
+
+    s += '<li class="mdl-list__item mdl-list__item--two-line">';
+    s += '<span class="mdl-list__item-primary-content">';
+    s += '<i class="material-icons mdl-list__item-avatar">attach_money</i>';
+    s += '<span>Total a Pagar</span>';
+    s += '<span class="mdl-list__item-sub-title"></span>';
+    s += '</span>';
+    s += '<span class="mdl-list__item-secondary-content">';
+    s += '<a class="mdl-list__item-secondary-action" id="iother"></a>';
+    s += '</span>';
+    s += '</li>';
+    s += '</ul>';
+    return s;
 }
 
 function createContentWorker(id) {
@@ -89,7 +146,7 @@ function createContentWorker(id) {
     s += '<span class="mdl-list__item-sub-title">Nombres y Apellidos</span>';
     s += '</span>';
     s += '</li>';
-    
+
     s += '<li class="mdl-list__item mdl-list__item--two-line">';
     s += '<span class="mdl-list__item-primary-content">';
     s += '<i class="material-icons mdl-list__item-avatar">work</i>';
@@ -97,7 +154,7 @@ function createContentWorker(id) {
     s += '<span class="mdl-list__item-sub-title">Puesto de Trabajo</span>';
     s += '</span>';
     s += '</li>';
-    
+
     s += '<li class="mdl-list__item mdl-list__item--two-line">';
     s += '<span class="mdl-list__item-primary-content">';
     s += '<i class="material-icons mdl-list__item-avatar">today</i>';
@@ -105,7 +162,7 @@ function createContentWorker(id) {
     s += '<span class="mdl-list__item-sub-title">Días Laborables</span>';
     s += '</span>';
     s += '</li>';
-    
+
     s += '<li class="mdl-list__item mdl-list__item--two-line">';
     s += '<span class="mdl-list__item-primary-content">';
     s += '<i class="material-icons mdl-list__item-avatar">view_module</i>';
@@ -113,7 +170,7 @@ function createContentWorker(id) {
     s += '<span class="mdl-list__item-sub-title">Horas Laborables</span>';
     s += '</span>';
     s += '</li>';
-    
+
     s += '<li class="mdl-list__item mdl-list__item--two-line">';
     s += '<span class="mdl-list__item-primary-content">';
     s += '<i class="material-icons mdl-list__item-avatar">add</i>';
@@ -149,7 +206,7 @@ function dataWorker(id) {
 
 function createContentDiscount(id) {
     var s = '<ul class="demo-list-two mdl-list">';
-    
+
     s += '<li class="mdl-list__item mdl-list__item--two-line">';
     s += '<span class="mdl-list__item-primary-content">';
     s += '<i class="material-icons mdl-list__item-avatar">info</i>';
@@ -160,7 +217,7 @@ function createContentDiscount(id) {
     s += '<a class="mdl-list__item-secondary-action" id="iafp"></a>';
     s += '</span>';
     s += '</li>';
-    
+
     s += '<li class="mdl-list__item mdl-list__item--two-line">';
     s += '<span class="mdl-list__item-primary-content">';
     s += '<i class="material-icons mdl-list__item-avatar">gavel</i>';
@@ -171,7 +228,7 @@ function createContentDiscount(id) {
     s += '<a class="mdl-list__item-secondary-action" id="impr"></a>';
     s += '</span>';
     s += '</li>';
-    
+
     s += '<li class="mdl-list__item mdl-list__item--two-line">';
     s += '<span class="mdl-list__item-primary-content">';
     s += '<i class="material-icons mdl-list__item-avatar">remove_circle</i>';
@@ -196,7 +253,7 @@ function dataDiscount(id) {
             $("#nafp").empty();
             $("#nafp").append(a[i].cargo);
             $("#iafp").empty();
-            $("#iafp").append(a[i].cargo+" "+"hijo(s)");
+            $("#iafp").append(a[i].cargo + " " + "hijo(s)");
             $("#impr").empty();
             $("#impr").append(a[i].dlab);
             $("#iother").empty();
@@ -275,9 +332,10 @@ function dataRemuneration(id) {
         var a = objJson.trabajador;
         for (var i = 0; i < a.length; i++) {
             $("#isb").empty();
-            $("#isb").append(a[i].cargo);
+            var sbas = a[i].sbasico;
+            $("#isb").append(sbas);
             $("#inh").empty();
-            $("#inh").append(a[i].cargo+" "+"hijo(s)");
+            $("#inh").append(a[i].cargo + " " + "hijo(s)");
             $("#iaf").empty();
             $("#iaf").append(a[i].dlab);
             $("#ibe").empty();
@@ -285,9 +343,26 @@ function dataRemuneration(id) {
             $("#ico").empty();
             $("#ico").append(a[i].hextra);
             $("#inhe").empty();
-            $("#inhe").append(a[i].hextra);
-            $("#ihe").empty();
-            $("#ihe").append(a[i].hextra);
+            var h = a[i].hextra;
+            $("#inhe").append(h);
+            var f = 0;
+            if (h > 0) {
+                if (h > 2) {
+                    var r = h - 2;
+                    var p = (sbas / 30 / 8) * 2 * 1.25;
+                    var t = (sbas / 30 / 8) * r * 1.35;
+                    f = p + t;
+                } else {
+                    f = (sbas / 30 / 8) * h * 1.25;
+                }
+                f = f.toFixed(2);
+                $("#ihe").empty();
+                $("#ihe").append(f);
+            } else {
+                $("#ihe").empty();
+                $("#ihe").append(0);
+            }
+
         }
     });
 }
