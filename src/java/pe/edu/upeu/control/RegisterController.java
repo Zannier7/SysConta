@@ -62,15 +62,15 @@ public class RegisterController extends HttpServlet {
                         case "registrar":
                             String nombre=request.getParameter("nombre");
                             String regdni=request.getParameter("dni");
-                            String ap=request.getParameter("ap");
+                            String ap=request.getParameter("apellidos");
                             String cargo=request.getParameter("cargo");
                             String fini=request.getParameter("fini");
                             String ffin=request.getParameter("ffin");
                             String hrlab=request.getParameter("hrlab");
+                            String dlab=request.getParameter("dlab");
                             String asignf=request.getParameter("asignf");
                             String sbase=request.getParameter("sbase");
-                            System.out.println(asignf);
-                            System.out.println("Hola "+asignf);
+                            
                     }
                     break;
             }

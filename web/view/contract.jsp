@@ -53,12 +53,12 @@
                         <div style="width: 33%;float: left">
                             <!-- Select with arrow-->
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height">
-                                <input class="mdl-textfield__input" name="cargo" type="text" id="select" value="Seleccionar" readonly tabIndex="-1">
-                                <label for="select">
+                                <input class="mdl-textfield__input" name="cargo" type="text" id="cargo" value="Seleccionar" readonly tabIndex="-1">
+                                <label for="cargo">
                                     <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
                                 </label>
-                                <label for="select" class="mdl-textfield__label">Puesto de Trabajo</label>
-                                <ul for="select" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                <label for="cargo" class="mdl-textfield__label">Puesto de Trabajo</label>
+                                <ul for="cargo" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
                                     <li class="mdl-menu__item" data-val="Esclavo">Esclavo</li>
                                     <li class="mdl-menu__item" data-val="Barrendero">Barrendero</li>
                                     <li class="mdl-menu__item" data-val="Garitero">Garitero</li>
@@ -86,28 +86,10 @@
                                 <span class="mdl-textfield__error">¡No es un número!</span>
                             </div>
                         </div>
-                         <div style="width: 33%;float: right">
-                         
-                              
-                                <label for="sample1" class="text">Asignación Familiar</label>
-                                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"  for="switch-1">
-                                <div style="margin-right: 100px;"> <input type="checkbox" id="switch-1" class="mdl-switch__input" checked></div>
-                                <span class="mdl-switch__label"></span>
-                                 </label>
-                           
-                        </div>
-                        
-                        <div style="width: 33%;float: left">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="date" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
-                                <label class="mdl-textfield__label" for="sample4">Fecha de Salida</label>
-                                <span class="mdl-textfield__error">¡No es un número!</span>
-                            </div>
-                        </div>
                         <div style="width: 33%;float: right">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="date" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
-                                <label class="mdl-textfield__label" for="sample4">Fecha de Ingreso</label>
+                                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="dlab" id="dlab">
+                                <label class="mdl-textfield__label" for="dlab">Días Laborales</label>
                                 <span class="mdl-textfield__error">¡No es un número!</span>
                             </div>
                         </div>
@@ -144,33 +126,45 @@
             var nombre = $("#nombres").val();
             var ap = $("#apellidos").val();
             var dni = $("#dni").val();
-            /*var user = $("#iusadm").val();
-            var pass = $("#ipassadm").val();
-            var passc = $("#ipassadmc").val();
-            if (name != "" && ape != "" && user != "" && pass != "" && passc != "" && pass == passc && emp != "") {
-                var url = "reg?opc=1&tipe=userRoot";
-                var data = "name=" + name;
-                data += "&ape=" + ape;
+            var hrlab = $("#hrlab").val();
+            var fini = $("#fini").val();
+            var ffin = $("#ffin").val();
+            var cargo = $("#cargo").val();
+            var dlab = $("#dlab").val();
+            var sbase = $("#sbase").val();
+            var asigf=$("input[name:'asignf']").prop("checked");
+            if (nombre != "" && ap != "" && dni != "" && hrlab != "" && fini != "" && ffin == cargo && dlab != "" && asigf != "" && sbase != "") {
+                var url = "reg?opc=2&tipe=registrar";
+                var data = "nombre=" + nombre;
+                data += "&apallidos=" + ap;
                 data += "&dni=" + dni;
-                data += "&user=" + user;
-                data += "&pass=" + pass;
-                data += "&emp=" + emp;
+                data += "&hrlab=" + hrlab;
+                data += "&fini=" + fini;
+                data += "&ffin=" + ffin;
+                data += "&cargo=" + cargo;
+                data += "&dlab=" + dlab;
+                data += "&sbase=" + sbase;
+                data += "&asignf=" + asigf;
                 $.post(url, data, function (pack) {
                     if (pack.rpta) {
                         new PNotify({
                             title: 'Correcto',
-                            text: 'Ya puede Iniciar Sesión',
-                            type: 'success'
+                            text: 'El trabajador ha sido contratado',
+                            type: 'primary'
                         });
                         clear();
                     }
                 });
 
             } else {
-                alert("Falta registrar algunos datos");
+                new PNotify({
+                            title: 'Correcto',
+                            text: 'Faltan ingresar algunos datos necesarios',
+                            type: 'warning'
+                        });
+                        clear();
             }
-                alert($('input[name="asignf"]').prop('checked'));
-            });*/
+            });
         });
     </script>
 </body>

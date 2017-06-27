@@ -20,7 +20,7 @@ public class ContratoDAO {
         Conexion oConexion = new Conexion();
         StringBuilder sql = new StringBuilder();
        
-        sql.append("SELECT * FROM PERSONA P, CONTRATO C, SUELDO S, RENUMERACION R ");
+        sql.append("SELECT * FROM PERSONA P, CONTRATO C, SUELDO S, RENUMERACIONes R ");
         sql.append("WHERE C.IDCONTRATO=S.IDCONTRATO ");
         sql.append("AND C.IDPERSONA=P.IDPERSONA ");
         sql.append("AND R.IDSUELDO=S.IDSUELDO; ");
