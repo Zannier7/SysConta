@@ -472,4 +472,16 @@ CREATE TABLE `cargo` (
   `nombre` varchar(100) NOT NULL,
   `comision` double NOT NULL,
   PRIMARY KEY (`idcargo`)
-)
+);
+DROP TABLE IF EXISTS `contrato`;
+CREATE TABLE `contrato` (
+  `idcontrato` int(11) NOT NULL,
+  `idpersona` int(11) NOT NULL,
+  `fechaingreso` date NOT NULL,
+  `fechasalida` date NOT NULL,
+  `idcargo` int(11) NOT NULL,
+  `asigfamiliar` char(1) NOT NULL,
+  `dlaborales` varchar(1) NOT NULL,
+  `hlaborales` varchar(20) NOT NULL,
+  `sueldo` double NOT NULL
+);
