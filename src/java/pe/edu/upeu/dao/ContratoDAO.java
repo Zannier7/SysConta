@@ -15,7 +15,7 @@ import pe.edu.upeu.config.Conexion;
  */
 public class ContratoDAO {
     
-    
+   /* 
     public static String[][] listarContrato() {
         Conexion oConexion = new Conexion();
         StringBuilder sql = new StringBuilder();
@@ -60,5 +60,5 @@ public class ContratoDAO {
 
     }
     
-   
+   */
 }

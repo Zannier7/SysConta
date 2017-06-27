@@ -6,58 +6,48 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html style="overflow-y: hidden">
+<html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <script src="../resources/jquery-2.2.3.min.js" type="text/javascript"></script>
+        <link href="../resources/Material+Icons.css" rel="stylesheet" type="text/css"/>
+        <script src="../resources/material.js" type="text/javascript"></script>
+        <link href="../resources/material.min.css" rel="stylesheet" type="text/css"/>
+        <script src="../resources/material.min.js" type="text/javascript"></script>
     </head>
     <body>
-        <div>
-            <center>
-                <h1>Planilla</h1>
-                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="kkk" cellspacing="0" >
-                    <thead>
-                        <tr>
-                            <th colspan="2"><center>Datos del Trabajador</center></th>
-                    <th colspan="2" style="color: #558b2f"><center>Remuneraciones</center></th>
-                    <th colspan="2" style="color: #e65100"><center>Descuentos</center></th>
-                    <th colspan="1" style="color: #01579b"><center>Aportes</center></th>
-                    <th colspan="2" style="color: #d50000"><center>Monto a Pagar</center></th>
-                    </tr>
-                    <tr>
-                        <th class="tra">Apellidos y Nombres</th>
-                        <th class="tra">Ocupación</th>
-                        <th style="color: #558b2f">Sueldo Básico</th>
-                        <th style="color: #558b2f">Total</th>
-                        <th style="color: #e65100">Imp. Renta</th>
-                        <th style="color: #e65100">Total</th>
-                        <th style="color: #01579b">Total</th>
-                        <th style="color: #d50000">Total</th>
-                        <th style="color: #d50000">Detalle</th>
-                    </tr>
-
-                    </thead>
-                    <tbody class="tbodys">
-                        <tr>
-                            <td>Burgos Leandro</td>
-                            <td>Esclavo</td>
-                            <td>850</td>
-                            <td>12</td>
-                            <td>34</td>
-                            <td>54</td>
-                            <td>54</td>
-                            <td>5400</td>
-                            <td><button style="background: #f4511e"  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                                    <i class="material-icons">attach_money</i>
-                                </button></td>
-                        </tr>
-                    </tbody>
-
-                </table>    
-            </center>
+    <center><div id="noData" class="maia-col-4 card services-track mdl-card mdl-shadow--2dp">
+            <div class="image mdl-card__title">
+            </div>
+            <div class="content mdl-card__supporting-text mdl-color-text--grey-800">
+                <h3 class="mdl-card__title-text subhead mdl-typography--font-regular">
+                    No hay Trabajadores en Planilla
+                </h3>
+                <p>
+                    Aún no se ha realizado la contratación de trabajadores. Al realizarla podrá ver 
+                    la lista de los contratados en esta sección
+                </p>
+            </div>
+        </div></center>
+    <div id="yesData">
+        <center>
+            <h3>Planilla</h3>
+            <div id="contT"></div>
+        </center>
+        <button onclick="mod(4,0)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" style="color: white;float: right;margin-right: 7%;">
+            Totales
+        </button>
+    </div>
+    <dialog class="mdl-dialog mdl-cell--6-col">
+        <h4 class="mdl-dialog__title" id="titleM"></h4>
+        <div class="mdl-dialog__content" id="contenidoM"> 
         </div>
-    </body>
+        <div class="mdl-dialog__actions">
+            <button style="color: white" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent close">Cerrar</button>
+        </div>
+
+    </dialog>
+    <script src="../resources/conPayroll.js" type="text/javascript"></script>
+</body>
 </html>

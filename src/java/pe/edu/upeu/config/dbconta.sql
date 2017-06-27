@@ -26,18 +26,14 @@ CREATE TABLE `aportes` (
   `idaportes` int(11) NOT NULL AUTO_INCREMENT,
   `essalud` varchar(100) NOT NULL,
   `senati` varchar(100) NOT NULL,
+  `idcontrato` int(11) DEFAULT NULL,
   PRIMARY KEY (`idaportes`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `aportes`
---
 
-LOCK TABLES `aportes` WRITE;
-/*!40000 ALTER TABLE `aportes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `aportes` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `contrato`
@@ -56,17 +52,12 @@ CREATE TABLE `contrato` (
   `dlaborales` varchar(100) NOT NULL,
   `hlaborales` varchar(100) NOT NULL,
   PRIMARY KEY (`idcontrato`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `contrato`
 --
-
-LOCK TABLES `contrato` WRITE;
-/*!40000 ALTER TABLE `contrato` DISABLE KEYS */;
-/*!40000 ALTER TABLE `contrato` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `descuentos`
@@ -81,18 +72,14 @@ CREATE TABLE `descuentos` (
   `onp` varchar(100) NOT NULL,
   `quintacategoria` varchar(100) NOT NULL,
   `otros` varchar(100) NOT NULL,
+  `idcontrato` int(11) NOT NULL,
   PRIMARY KEY (`iddescuento`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `descuentos`
 --
-
-LOCK TABLES `descuentos` WRITE;
-/*!40000 ALTER TABLE `descuentos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `descuentos` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `det_privilegio`
@@ -151,9 +138,14 @@ DROP TABLE IF EXISTS `empresa`;
 CREATE TABLE `empresa` (
   `idempresa` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
+   ruc     varchar(40) NOT NULL,
   PRIMARY KEY (`idempresa`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `empresa`
+--
 
 
 --
@@ -169,13 +161,12 @@ CREATE TABLE `persona` (
   `apellidos` varchar(100) NOT NULL,
   `dni` int(10) NOT NULL,
   PRIMARY KEY (`idpersona`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `persona`
 --
-
 
 
 --
@@ -204,30 +195,25 @@ LOCK TABLES `privilegio` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `renumeraciones`
+-- Table structure for table `remuneraciones`
 --
 
-DROP TABLE IF EXISTS `renumeraciones`;
+DROP TABLE IF EXISTS `remuneraciones`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `renumeraciones` (
-  `idrenumeracion` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `remuneraciones` (
+  `idremuneracion` int(11) NOT NULL AUTO_INCREMENT,
   `idsueldo` int(11) NOT NULL,
   `hextras` varchar(100) NOT NULL,
-  `comisicones` varchar(100) NOT NULL,
+  `comisiones` varchar(100) NOT NULL,
   `bono` varchar(100) NOT NULL,
-  PRIMARY KEY (`idrenumeracion`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`idremuneracion`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `renumeraciones`
+-- Dumping data for table `remuneraciones`
 --
-
-LOCK TABLES `renumeraciones` WRITE;
-/*!40000 ALTER TABLE `renumeraciones` DISABLE KEYS */;
-/*!40000 ALTER TABLE `renumeraciones` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `rol`
@@ -266,17 +252,9 @@ CREATE TABLE `sueldo` (
   `fecha` date NOT NULL,
   `idcontrato` int(11) NOT NULL,
   PRIMARY KEY (`idsueldo`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `sueldo`
---
-
-LOCK TABLES `sueldo` WRITE;
-/*!40000 ALTER TABLE `sueldo` DISABLE KEYS */;
-/*!40000 ALTER TABLE `sueldo` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `usuario`
@@ -293,8 +271,67 @@ CREATE TABLE `usuario` (
   `idempresa` int(11) NOT NULL,
   `idrol` int(11) NOT NULL,
   PRIMARY KEY (`idusuario`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuario`
+--
+
+-- Estructura de tabla para la tabla `diario`
+-- 
+
+CREATE TABLE `diario` (
+  `iddescricion` int(11) NOT NULL auto_increment,
+  `idplancontable` int(11) NOT NULL,
+  `cdgdescripcion` varchar(50) NOT NULL,
+  `fecha` varchar(100) NOT NULL,
+  `descripcion` varchar(500) NOT NULL,
+  `tmovimiento` char(1) NOT NULL,
+  `cmovimiento` varchar(100) NOT NULL,
+  PRIMARY KEY  (`iddescricion`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+-- Estructura de tabla para la tabla `plancontable`
+-- 
+
+CREATE TABLE `plancontable` (
+  `idplancontable` int(11) NOT NULL auto_increment,
+  `codigo` int(11) NOT NULL,
+  `descripcion` varchar(500) NOT NULL,
+  PRIMARY KEY  (`idplancontable`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+
+-- 
+-- Volcar la base de datos para la tabla `plancontable`
+-- 
+
+INSERT INTO `plancontable` VALUES (1, 101, 'CAJA');
+INSERT INTO `plancontable` VALUES (2, 403, 'INSTITUCIONES PÚBLICAS');
+INSERT INTO `plancontable` VALUES (3, 4032, 'ONP');
+INSERT INTO `plancontable` VALUES (4, 4031, 'ESSALUD');
+INSERT INTO `plancontable` VALUES (5, 4033, 'SENATI');
+INSERT INTO `plancontable` VALUES (6, 4034, 'SENCICO');
+INSERT INTO `plancontable` VALUES (7, 4039, 'OTRAS INSTITUCIONES');
+INSERT INTO `plancontable` VALUES (8, 411, 'REMUNERACIONES POR PAGAR');
+INSERT INTO `plancontable` VALUES (9, 4111, 'SUELDOS Y SALARIOS POR PAGAR');
+INSERT INTO `plancontable` VALUES (10, 4112, 'COMISIONES POR PAGAR');
+INSERT INTO `plancontable` VALUES (11, 4113, 'REMUNERACIONES');
+INSERT INTO `plancontable` VALUES (12, 4114, 'GRATIFICACIONES POR PAGAR');
+INSERT INTO `plancontable` VALUES (13, 4115, 'VACACIONES POR PAGAR');
+INSERT INTO `plancontable` VALUES (14, 621, ' REMUNERACIONES');
+INSERT INTO `plancontable` VALUES (15, 6211, 'SUELDOS Y SALARIOS');
+INSERT INTO `plancontable` VALUES (16, 6212, 'COMISIONES');
+INSERT INTO `plancontable` VALUES (17, 6213, 'REMUNERACIONES');
+INSERT INTO `plancontable` VALUES (18, 6214, 'GRATIFICACIONES');
+INSERT INTO `plancontable` VALUES (19, 6215, 'VACACIONES');
+INSERT INTO `plancontable` VALUES (20, 627, 'SEGURIDAD, PREVENCION SOCIAL Y OTRAS CONTRIBUCIONES');
+
+
+
+
+
 
 --
 -- Dumping data for table `usuario`
@@ -337,3 +374,95 @@ begin
         commit;
         select 1 as result;
 end
+
+
+DROP TABLE IF EXISTS `aportes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `aportes` (
+  `idaportes` int(11) NOT NULL AUTO_INCREMENT,
+  `essalud` varchar(100) NOT NULL,
+  `senati` varchar(100) NOT NULL,
+  `idcontrato` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idaportes`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+DROP TABLE IF EXISTS `descuentos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `descuentos` (
+  `iddescuento` int(11) NOT NULL AUTO_INCREMENT,
+  `afp` varchar(100) NOT NULL,
+  `onp` varchar(100) NOT NULL,
+  `quintacategoria` varchar(100) NOT NULL,
+  `otros` varchar(100) NOT NULL,
+  `idcontrato` int(11) NOT NULL,
+  PRIMARY KEY (`iddescuento`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+DROP TABLE IF EXISTS `remuneraciones`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `remuneraciones` (
+  `idremuneracion` int(11) NOT NULL AUTO_INCREMENT,
+  `idsueldo` int(11) NOT NULL,
+  `hextras` varchar(100) NOT NULL,
+  `comisiones` varchar(100) NOT NULL,
+  `bono` varchar(100) NOT NULL,
+  PRIMARY KEY (`idremuneracion`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Table structure for table `rol`
+--
+
+DROP TABLE IF EXISTS `rol`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rol` (
+  `idrol` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) NOT NULL,
+  PRIMARY KEY (`idrol`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rol`
+--
+
+LOCK TABLES `rol` WRITE;
+/*!40000 ALTER TABLE `rol` DISABLE KEYS */;
+INSERT INTO `rol` VALUES (1,'ADMINISTRADOR DEL SISTEMA');
+/*!40000 ALTER TABLE `rol` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sueldo`
+--
+
+DROP TABLE IF EXISTS `sueldo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sueldo` (
+  `idsueldo` int(11) NOT NULL AUTO_INCREMENT,
+  `sueldobasico` varchar(100) NOT NULL,
+  `fecha` date NOT NULL,
+  `idcontrato` int(11) NOT NULL,
+  PRIMARY KEY (`idsueldo`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (1,'root','root',1,1,1);
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

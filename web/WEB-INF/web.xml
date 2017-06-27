@@ -12,6 +12,14 @@
         <servlet-name>RegisterController</servlet-name>
         <servlet-class>pe.edu.upeu.control.RegisterController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PayrollController</servlet-name>
+        <servlet-class>pe.edu.upeu.control.PayrollController</servlet-class>
+    </servlet>
+     <servlet>
+        <servlet-name>DiarioController</servlet-name>
+        <servlet-class>pe.edu.upeu.control.DiarioController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -24,6 +32,15 @@
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/reg</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PayrollController</servlet-name>
+        <url-pattern>/payroll</url-pattern>
+    </servlet-mapping>
+      <servlet-mapping>
+        <servlet-name>DiarioController</servlet-name>
+        <url-pattern>/diario</url-pattern>
+    </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30

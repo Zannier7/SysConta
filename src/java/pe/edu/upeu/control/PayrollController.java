@@ -5,25 +5,25 @@
  */
 package pe.edu.upeu.control;
 
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import pe.edu.upeu.dao.UsuarioDAO;
+import pe.edu.upeu.dao.PayrollDAO;
 
 /**
  *
  * @author Leandro Burgos
  */
-public class MainController extends HttpServlet {
+public class PayrollController extends HttpServlet {
 
     Map<String, Object> mp = new HashMap<>();
-    UsuarioDAO uO = new UsuarioDAO();
+    PayrollDAO pd = new PayrollDAO();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,26 +36,27 @@ public class MainController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher dispatcher;
-        String pagina = "";
+        response.setContentType("application/json;charset=UTF-8");
+        PrintWriter out = response.getWriter();
         int opc = Integer.parseInt(request.getParameter("opc"));
-        
-        switch (opc) {
-            case 1:
-                pagina = "/view/diarybook.jsp";
-                dispatcher = getServletContext().getRequestDispatcher(pagina);
-                dispatcher.forward(request, response);
-                break;
-
-            case 2:
-                pagina = "/index.jsp";
-                dispatcher = getServletContext().getRequestDispatcher(pagina);
-                dispatcher.forward(request, response);
-                break;
-            
+        try {
+            switch (opc) {
+                case 1://validar
+                    mp.put("lista", pd.validarPayroll());
+                    break;
+                case 2://listar un trabajador
+                    int id = Integer.parseInt(request.getParameter("id"));
+                    mp.put("trabajador", pd.listWorker(id));
+                    break;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            mp.put("error", e.getMessage());
         }
-
+        Gson gson = new Gson();
+        out.println(gson.toJson(mp));
+        out.flush();
+        out.close();
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

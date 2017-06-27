@@ -18,6 +18,7 @@
         <script src="../resources/jquery-2.2.3.min.js" type="text/javascript"></script>
         <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
         <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+        
     </head>
     <body>
     <center>
@@ -35,7 +36,7 @@
                         </div>
                         <div style="width: 33%;float: right">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" name="dni" id="dni" pattern="-?[0-9]*(\.[0-9]+)?">
+                                <input class="mdl-textfield__input" length="8" type="text" name="dni" id="dni" pattern="-?[0-9]*(\.[0-9]+)?">
                                 <label class="mdl-textfield__label" for="dni">DNI</label>
                                 <span class="mdl-textfield__error">¡No es un número!</span>
                             </div>

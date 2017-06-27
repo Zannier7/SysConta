@@ -5,18 +5,22 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="es" style="overflow-y: hidden">
+<!DOCTYPE html5>
+<html lang="es" style="height: 100%;overflow-y: hidden">
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="resources/jquery-2.2.3.min.js" type="text/javascript"></script>        
+        <link href="resources/pnotify.custom.min.css" rel="stylesheet" type="text/css"/>
+        <script src="resources/pnotify.custom.min.js" type="text/javascript"></script>
         <script src="resources/jquery-2.2.3.min.js" type="text/javascript"></script>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <link href="resources/Material+Icons.css" rel="stylesheet" type="text/css"/>
+        <script src="resources/material.js" type="text/javascript"></script>
+        <link href="resources/material.min.css" rel="stylesheet" type="text/css"/>
+        <script src="resources/material.min.js" type="text/javascript"></script>
     </head>
-    <body>
+    <body style="height: 100%;">
 
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
             <header class="mdl-layout__header">
@@ -26,7 +30,6 @@
                     <a href="view/payroll.jsp" target="frame" class="mdl-layout__tab l2" onclick="ch('l2')">Planilla</a>
                     <a href="view/settings.jsp" target="frame" class="mdl-layout__tab l3" onclick="ch('l3')">Configuraciones</a>
                     <a href="view/contract.jsp" target="frame" class="mdl-layout__tab l4" onclick="ch('l4')">Contratos</a>
-                    <a href="view/listaTrabajadores.jsp" target="frame" class="mdl-layout__tab l4" onclick="ch('l4')">Data Trabajadores</a>
                 </div>
             </header>
             <script>
@@ -49,7 +52,7 @@
             <main class="mdl-layout__content">
                 <iframe src="view/info.jsp"
                         name="frame" id="idframe" onload="loadFrame(this.contentWindow.location);"
-                        style="width: 100%;height: 660px;overflow-y: hidden;border: none">
+                        style="overflow-y: hidden;border: none;width: 100%;height: 100%;">
                 </iframe>
             </main>
         </div>

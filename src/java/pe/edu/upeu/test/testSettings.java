@@ -18,9 +18,9 @@ public class testSettings {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //testConnection();
+       testConnection();
         //listarA();
-        leer();
+        //leer();
        
     }
  public static ContratoDAO hD = new ContratoDAO();
@@ -31,7 +31,7 @@ public class testSettings {
             System.out.println("Desconectado");
         }
     }
-    
+  /*  
       public static void listarA() {
         String[][] datos = hD.listarContrato();
         try {
@@ -54,4 +54,5 @@ public class testSettings {
             System.out.println(dato[3]);
         }    
     }
-}
+*/
+    }

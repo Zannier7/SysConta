@@ -16,7 +16,7 @@ import java.sql.Statement;
  * @author Leandro Burgos
  */
 public class Conexion {
-    private static final String url = "jdbc:mysql://localhost/dbconta";
+    private static final String url = "jdbc:mysql://localhost:3306/dbconta";
     private static final String driver = "com.mysql.jdbc.Driver";
     private static final String user = "root";
     private static final String clave = "root";
@@ -33,22 +33,6 @@ public class Conexion {
         }
         return conn;
     }
-    
-   public ResultSet query(String sql) {
-
-        Statement st;
-        ResultSet rs = null;
-        try {
-            Connection conexion = this.getConexion();
-            st = conexion.createStatement();
-            rs = st.executeQuery(sql);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return rs;
-    }
-    
     
     public static void cerrar() {
         try {
