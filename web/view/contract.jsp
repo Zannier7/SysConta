@@ -18,8 +18,11 @@
         <script src="../resources/pnotify.custom.min.js" type="text/javascript"></script>
         <script src="../resources/select2.min.js" type="text/javascript"></script>
         <link href="../resources/select2.min.css" rel="stylesheet" type="text/css"/>
-        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-        <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+        <link href="../resources/classic.css" rel="stylesheet" type="text/css"/>
+        <link href="../resources/classic.date.css" rel="stylesheet" type="text/css"/>
+        <script src="../resources/picker.js" type="text/javascript"></script>
+        <script src="../resources/picker.date.js" type="text/javascript"></script>
+        <script src="../resources/es_ES.js" type="text/javascript"></script>
 
     </head>
     <body>
@@ -59,14 +62,14 @@
                         </div>
                         <div style="width: 33%;float: left">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" pattern="\d{4}-\d{1,2}-\d{1,2}" name="fini" id="fini">
+                                <input class="mdl-textfield__input" type="text" name="fini" id="fini">
                                 <label class="mdl-textfield__label" for="fini">Fecha de Inicio</label>
                                 <span class="mdl-textfield__error">¡No es un fecha!</span>
                             </div>
                         </div>
                         <div style="width: 33%;float: right">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" pattern="\d{4}-\d{1,2}-\d{1,2}" name="ffin" id="ffin">
+                                <input class="mdl-textfield__input" type="text" name="ffin" id="ffin">
                                 <label class="mdl-textfield__label" for="ffin">Fecha Fin</label>
                                 <span class="mdl-textfield__error">¡No es un fecha!</span>
                             </div>
@@ -131,13 +134,15 @@
             });
             $("#listcargo").select2();
             $("#pension").select2();
+            var $fini=$("#fini").pickadate();
+            var $ffin=$("#ffin").pickadate();
             $("#env").click(function () {
                 var nombre = $("#nombre").val();
                 var ap = $("#apellidos").val();
                 var dni = $("#dni").val();
                 var hrlab = $("#hrlab").val();
-                var fini = $("#fini").val();
-                var ffin = $("#ffin").val();
+                var fini = $fini.pickadate('picker');
+                var ffin = $ffin.pickadate('picker');;
                 var cargo = $("#listcargo").val();
                 var dlab = $("#dlab").val();
                 var sbase = $("#sbase").val();
@@ -154,8 +159,8 @@
                     data += "&apellidos=" + ap;
                     data += "&dni=" + dni;
                     data += "&hrlab=" + hrlab;
-                    data += "&fini=" + fini;
-                    data += "&ffin=" + ffin;
+                    data += "&fini=" + fini.get('select','yyyy-mm-dd');
+                    data += "&ffin=" + ffin.get('select','yyyy-mm-dd');
                     data += "&idcargo=" + cargo;
                     data += "&dlab=" + dlab;
                     data += "&sbase=" + sbase;

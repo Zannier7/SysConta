@@ -102,7 +102,7 @@ public class ContratoDAO {
             rs = ps.executeQuery();
             int idpersona=0;
             while(rs.next()){
-                idpersona=rs.getInt("idpersona");
+                idpersona=rs.getInt("idper");
             }
             sql="insert into contrato(idpersona,fechaingreso,fechasalida,idcargo,asigfamiliar,dlaborales,hlaborales,sueldo,pension) values (?,?,?,?,?,?,?,?,?)";
             ps=cn.prepareStatement(sql);
