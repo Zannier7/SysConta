@@ -487,3 +487,19 @@ CREATE TABLE `contrato` (
   `pension` char(2) NOT NULL,
   PRIMARY KEY (`idcontrato`)
 );
+CREATE TABLE `planilla` (
+  `idplanilla` int(11) NOT NULL AUTO_INCREMENT,
+  `fecha` date NOT NULL,
+  PRIMARY KEY (`idplanilla`)
+);
+CREATE TABLE `det_planilla` (
+  `iddetplanilla` int(11) NOT NULL AUTO_INCREMENT,
+  `idplanilla` int(100) NOT NULL,
+  `ntotal` double NOT NULL,
+  `codigo` varchar(100) NOT NULL,
+  `denominacion` varchar(100) NOT NULL,
+  `monto` double NOT NULL,
+  `movimiento` int NOT NULL, --debe-haber
+  PRIMARY KEY (`iddetplanilla`)
+  FOREIGN KEY (`idplanilla`)
+);
