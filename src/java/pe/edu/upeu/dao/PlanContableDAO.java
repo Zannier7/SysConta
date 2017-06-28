@@ -11,7 +11,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import pe.edu.upeu.config.Conexion;
 import pe.edu.upeu.model.Modelo_plancontable;
 
@@ -99,4 +101,38 @@ public class PlanContableDAO {
         }
         return listarPrueba;
     }
+    
+    public ArrayList<Map<String, ?>> listardiario() {
+        ArrayList<Map<String, ?>> r = new ArrayList<>();
+        sql = "SELECT * FROM PLANILLA P,DET_PLANILLA D WHERE P.IDPLANILLA=D.IDPLANILLA";
+              
+        try {
+            ps = Conexion.getConexion().prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Map<String, Object> d = new HashMap<>();
+                d.put("idplanilla", rs.getInt("idplanilla"));
+                d.put("iddetplanilla", rs.getInt("iddetplanilla"));
+                d.put("fecha", rs.getString("fecha"));
+                d.put("ntotal", rs.getString("ntotal"));
+                d.put("codigo", rs.getString("codigo"));
+                d.put("denominacion", rs.getString("denominacion"));
+                d.put("monto", rs.getString("monto"));
+                d.put("movimiento", rs.getString("movimiento"));
+                r.add(d);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            Conexion.cerrar();
+        }
+        return r;
+    }
+    
+    
+    
+    
+    
+    
+    
 }
