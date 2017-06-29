@@ -475,7 +475,7 @@ CREATE TABLE `cargo` (
 );
 DROP TABLE IF EXISTS `contrato`;
 CREATE TABLE `contrato` (
-  `idcontrato` int(11) NOT NULL,
+  `idcontrato` int(11) NOT NULL AUTO_INCREMENT,
   `idpersona` int(11) NOT NULL,
   `fechaingreso` date NOT NULL,
   `fechasalida` date NOT NULL,
@@ -483,5 +483,23 @@ CREATE TABLE `contrato` (
   `asigfamiliar` char(1) NOT NULL,
   `dlaborales` varchar(1) NOT NULL,
   `hlaborales` varchar(20) NOT NULL,
-  `sueldo` double NOT NULL
+  `sueldo` double NOT NULL,
+  `pension` char(2) NOT NULL,
+  PRIMARY KEY (`idcontrato`)
+);
+CREATE TABLE `planilla` (
+  `idplanilla` int(11) NOT NULL AUTO_INCREMENT,
+  `fecha` date NOT NULL,
+  PRIMARY KEY (`idplanilla`)
+);
+CREATE TABLE `det_planilla` (
+  `iddetplanilla` int(11) NOT NULL AUTO_INCREMENT,
+  `idplanilla` int(100) NOT NULL,
+  `ntotal` double NOT NULL,
+  `codigo` varchar(100) NOT NULL,
+  `denominacion` varchar(100) NOT NULL,
+  `monto` double NOT NULL,
+  `movimiento` int NOT NULL, --debe-haber
+  PRIMARY KEY (`iddetplanilla`)
+  FOREIGN KEY (`idplanilla`)
 );
