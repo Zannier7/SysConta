@@ -335,7 +335,7 @@ function dataRemuneration(id) {
             var sbas = a[i].sbasico;
             $("#isb").append(sbas);
             $("#inh").empty();
-            $("#inh").append(a[i].cargo + " " + "hijo(s)");
+            $("#inh").append(a[i].cargo + " " + "");
             $("#iaf").empty();
             $("#iaf").append(a[i].dlab);
             $("#ibe").empty();

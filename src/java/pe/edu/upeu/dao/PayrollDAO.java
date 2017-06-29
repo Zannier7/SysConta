@@ -80,8 +80,8 @@ public class PayrollDAO {
     public ArrayList<Map<String, ?>> listWorker(int id) {
         ArrayList<Map<String, ?>> r = new ArrayList<>();
         sql = "select * from contrato c,sueldo s,remuneraciones r,descuentos d,aportes a,persona p "
-                + "where c.fechaingreso > '2017-04-05' "
-                + "and c.fechasalida < '2017-06-08' "
+                + "where c.fechaingreso > '2015-04-05' "
+                + "and c.fechasalida < '2018-06-08' "
                 + "and p.idpersona=c.idpersona "
                 + "and c.idcontrato=s.idcontrato "
                 + "and d.idcontrato=c.idcontrato "

@@ -36,7 +36,10 @@
             <h3>Planilla</h3>
             <div id="contT"></div>
         </center>
-        <button onclick="mod(4,0)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" style="color: white;float: right;margin-right: 7%;">
+        <button class="mdl-button">
+            Enviar al diario
+        </button>
+        <button onclick="mod(4, 0)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" style="color: white;float: right;margin-right: 7%;">
             Totales
         </button>
     </div>
@@ -49,6 +52,44 @@
         </div>
 
     </dialog>
+   <!--<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" border="1" style="width: 50%;">
+        <tr>
+            <th colspan="3">
+                DIARIO
+            </th>
+        </tr>
+        <tr>
+            <td rowspan="3">
+                1
+            </td>
+            <td>
+                Por la centralización de la planilla
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Por el pago de la planilla
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Por el destino de los gastos
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2">
+                2
+            </td>
+            <td>
+                401
+            </td>
+        </tr>
+        <tr>
+            <td>
+                101
+            </td>
+        </tr>
+    </table>-->
     <script src="../resources/conPayroll.js" type="text/javascript"></script>
 </body>
 </html>
