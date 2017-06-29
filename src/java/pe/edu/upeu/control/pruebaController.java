@@ -45,7 +45,7 @@ public class pruebaController extends HttpServlet {
         try {
             switch (opc) {
                 case 1://validar
-                    System.out.println("llega");
+                    //System.out.println("llega");
                     mp.put("lista", pc.listardiario());
                     break;
                 
