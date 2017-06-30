@@ -7,6 +7,7 @@ $(document).ready(function () {
     $("#yesData").hide();
     validar();
 });
+var uit = 4050;
 function validar() {
     var url = '../payroll';
     var data = 'opc=1';
@@ -25,7 +26,56 @@ function validar() {
 
 function listar(lista) {
     var m = '';
+    var tremun = 0;
+    var tdesc = 0;
+    var taporte = 0;
+    var total = 0;
     for (var i = 0; i < lista.length; i++) {
+        //CALCULO DE TOTAL
+        var remu = 0;
+        var h = lista[i].hextra;
+        var sbas = lista[i].sbasico;
+        var f = 0;
+        var af = lista[i].afami;
+        var caf = 0;
+        if (h > 0) {
+            if (h > 2) {
+                var r = h - 2;
+                var p = (sbas / 30 / 8) * 2 * 1.25;
+                var t = (sbas / 30 / 8) * r * 1.35;
+                f = p + t;
+            } else {
+                f = (sbas / 30 / 8) * h * 1.25;
+            }
+        }
+        if (af == 1) {
+            caf = 85.00;
+        }
+        remu = parseInt(sbas) + parseInt(caf) + parseInt(lista[i].bono) + f;//FALTA SUMAR LA COMISION
+        var inter = lista[i].interes;
+        var ao = remu * inter;
+        //CALCULO DEL IMP. RENTA
+        var ip = remu * 14;
+        var ImR = 0;
+        var se = 7 * uit;//7 UIT
+        var sr = ip - se;//Diferencia Sueldo - 7UITs
+        var pc = 5 * uit;//Primera condicion (hasta 5 UITs)
+        if (sr > pc) {
+            var sc = 20 * uit;
+            if (sr > sc) {
+                var a = sc - pc;
+                
+            } else {//NO PASA DE LAS 20 UITs
+                ImR = ((pc * 0.08) + ((sr - pc) * 0.14)) / 12;
+            }
+        } else {//NO PASA DE LAS 5 UITs
+            if (sr < 0) {
+                ImR = 0;
+            } else {
+                ImR = (sr * 0.08) / 12;
+            }
+        }
+        ImR = ImR.toFixed(2);
         m += '<tr>';
         m += '<td>' + lista[i].persona + '</td>';
         m += '<td>' + lista[i].cargo + '</td>';
@@ -33,17 +83,18 @@ function listar(lista) {
         m += '<i class="material-icons">person</i>';
         m += '</button></td>';
         m += '<td>' + lista[i].sbasico + '</td>';
-        m += '<td>1500</td>';
+        m += '<td>' + f.toFixed(2) + '</td>';
+        m += '<td>' + remu.toFixed(2) + '</td>';
         m += '<td><button type="button" onclick="mod(2,' + lista[i].idpersona + ')" style="background: #76ff03;color:white" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">';
         m += '<i class="material-icons">trending_up</i>';
         m += '</button></td>';
-        m += '<td>' + lista[i].impuesto + '</td>';
-        m += '<td>54</td>';
+        m += '<td>' + ImR + '</td>';
+        m += '<td>' + lista[i].otros + '</td>';
         m += '<td><button type="button" onclick="mod(3,' + lista[i].idpersona + ')" id="btn3" style="background: #7b1fa2;color:white" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">';
         m += '<i class="material-icons">trending_down</i>';
         m += '</button></td>';
         m += '<td>' + lista[i].essalud + '</td>';
-        m += '<td>54</td>';
+        m += '<td>' + lista[i].senati + '</td>';
         m += '<td>5400</td>';
         m += '</tr>';
     }
@@ -382,13 +433,14 @@ function createTable() {
     s += '<th class="tra">Ocupación</th>';
     s += '<th></th>';
     s += '<th style="color: #558b2f">Sueldo Básico</th>';
+    s += '<th style="color: #558b2f">Pago Hora Extra</th>';
     s += '<th style="color: #558b2f">Total</th>';
     s += '<th></th>';
     s += '<th style="color: #e65100">Imp. Renta</th>';
-    s += '<th style="color: #e65100">Total</th>';
+    s += '<th style="color: #e65100">Otros</th>';
     s += '<th></th>';
     s += '<th style="color: #01579b">EsSalud</th>';
-    s += '<th style="color: #01579b">Total</th>';
+    s += '<th style="color: #01579b">Senati</th>';
     s += '<th style="color: #d50000">Total</th>';
     s += '</tr>';
     s += '</thead>';

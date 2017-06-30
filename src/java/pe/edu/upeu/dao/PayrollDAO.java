@@ -27,14 +27,21 @@ public class PayrollDAO {
 
     public ArrayList<Map<String, ?>> validarPayroll() {
         ArrayList<Map<String, ?>> r = new ArrayList<>();
-        sql = "select * from contrato c,sueldo s,remuneraciones r,descuentos d,aportes a,persona p "
-                + "where c.fechaingreso > '2015-04-05' "
-                + "and c.fechasalida < '2018-06-08' "
+        sql = "select p.idpersona,p.nombres pname,p.apellidos pape ,g.idcargo,g.nombre ocupacion,g.comision , "
+                + "c.idcontrato,c.fechaingreso,c.fechasalida,c.asigfamiliar,c.hlaborales,c.dlaborales,c.sueldo,c.pension, "
+                + "a.idaportes,a.essalud,a.senati,d.iddescuento,d.idafiliacion,d.impuesto,d.otros, "
+                + "r.idremuneracion,r.idsueldo,r.hextras,r.comisiones,r.bono, "
+                + "s.idsueldo,s.sueldobasico,s.fecha,l.tipo,l.nombre AO,l.interes "
+                + "from contrato c,sueldo s,remuneraciones r,descuentos d,aportes a,persona p,cargo g,afiliacion l "
+                + "where c.fechaingreso >= '2015-04-05' "
+                + "and c.fechasalida <= '2018-06-08'  "
                 + "and p.idpersona=c.idpersona "
                 + "and c.idcontrato=s.idcontrato "
-                + "and d.idcontrato=c.idcontrato "
-                + "and a.idcontrato=c.idcontrato "
-                + "and r.idsueldo=s.idsueldo";
+                + "and d.idsueldo=s.idsueldo "
+                + "and a.idsueldo=s.idsueldo "
+                + "and r.idsueldo=s.idsueldo "
+                + "and c.idcargo=g.idcargo "
+                + "and l.idafiliacion=d.idafiliacion ";
         try {
             ps = Conexion.getConexion().prepareStatement(sql);
             rs = ps.executeQuery();
@@ -47,26 +54,27 @@ public class PayrollDAO {
                 d.put("idremu", rs.getInt("idremuneracion"));
                 d.put("iddesc", rs.getInt("iddescuento"));
                 d.put("idaporte", rs.getInt("idaportes"));
+                d.put("idafiliacion", rs.getInt("idafiliacion"));
                 //DATA
-                d.put("persona", rs.getString("apellidos") + " " + rs.getString("nombres"));
+                d.put("persona", rs.getString("pape") + " " + rs.getString("pname"));
                 d.put("fechai", rs.getString("fechaingreso"));
                 d.put("fechas", rs.getString("fechasalida"));
-                d.put("cargo", rs.getString("cargo"));
-                d.put("asigfamiliar", rs.getString("asigfamiliar"));
+                d.put("cargo", rs.getString("ocupacion"));
+                d.put("afami", rs.getString("asigfamiliar"));
                 d.put("dlab", rs.getString("dlaborales"));
                 d.put("hlab", rs.getString("hlaborales"));
-                d.put("sbasico", rs.getString("sueldobasico"));
+                d.put("sbasico", rs.getDouble("sueldobasico"));
                 d.put("fsueldo", rs.getString("fecha"));
-                d.put("hextra", rs.getString("hextras"));
+                d.put("hextra", rs.getInt("hextras"));
                 d.put("comisiones", rs.getString("comisiones"));
-                d.put("bono", rs.getString("bono"));
-                d.put("afp", rs.getString("afp"));
-                d.put("onp", rs.getString("onp"));
-                d.put("impuesto", rs.getString("quintacategoria"));
+                d.put("bono", rs.getDouble("bono"));
+                d.put("impuesto", rs.getString("impuesto"));
                 d.put("otros", rs.getString("otros"));
                 d.put("essalud", rs.getString("essalud"));
                 d.put("senati", rs.getString("senati"));
-
+                d.put("tipo", rs.getInt("tipo"));
+                d.put("AO", rs.getString("AO"));
+                d.put("interes", rs.getString("interes"));
                 r.add(d);
             }
         } catch (SQLException ex) {
@@ -79,14 +87,21 @@ public class PayrollDAO {
 
     public ArrayList<Map<String, ?>> listWorker(int id) {
         ArrayList<Map<String, ?>> r = new ArrayList<>();
-        sql = "select * from contrato c,sueldo s,remuneraciones r,descuentos d,aportes a,persona p "
-                + "where c.fechaingreso > '2015-04-05' "
-                + "and c.fechasalida < '2018-06-08' "
+        sql = "select p.idpersona,p.nombres pname,p.apellidos pape ,g.idcargo,g.nombre ocupacion,g.comision , "
+                + "c.idcontrato,c.fechaingreso,c.fechasalida,c.asigfamiliar,c.hlaborales,c.dlaborales,c.sueldo,c.pension, "
+                + "a.idaportes,a.essalud,a.senati,d.iddescuento,d.idafiliacion,d.impuesto,d.otros, "
+                + "r.idremuneracion,r.idsueldo,r.hextras,r.comisiones,r.bono, "
+                + "s.idsueldo,s.sueldobasico,s.fecha,l.tipo,l.nombre AO,l.interes "
+                + "from contrato c,sueldo s,remuneraciones r,descuentos d,aportes a,persona p,cargo g,afiliacion l "
+                + "where c.fechaingreso >= '2015-04-05' "
+                + "and c.fechasalida <= '2018-06-08'  "
                 + "and p.idpersona=c.idpersona "
                 + "and c.idcontrato=s.idcontrato "
-                + "and d.idcontrato=c.idcontrato "
-                + "and a.idcontrato=c.idcontrato "
+                + "and d.idsueldo=s.idsueldo "
+                + "and a.idsueldo=s.idsueldo "
                 + "and r.idsueldo=s.idsueldo "
+                + "and c.idcargo=g.idcargo "
+                + "and l.idafiliacion=d.idafiliacion "
                 + "and p.idpersona=? ";
         try {
             ps = Conexion.getConexion().prepareStatement(sql);
@@ -101,12 +116,13 @@ public class PayrollDAO {
                 d.put("idremu", rs.getInt("idremuneracion"));
                 d.put("iddesc", rs.getInt("iddescuento"));
                 d.put("idaporte", rs.getInt("idaportes"));
+                d.put("idafiliacion", rs.getInt("idafiliacion"));
                 //DATA
-                d.put("persona", rs.getString("apellidos") + " " + rs.getString("nombres"));
+                d.put("persona", rs.getString("pape") + " " + rs.getString("pname"));
                 d.put("fechai", rs.getString("fechaingreso"));
                 d.put("fechas", rs.getString("fechasalida"));
-                d.put("cargo", rs.getString("cargo"));
-                d.put("asigfamiliar", rs.getString("asigfamiliar"));
+                d.put("cargo", rs.getString("ocupacion"));
+                d.put("afami", rs.getString("asigfamiliar"));
                 d.put("dlab", rs.getString("dlaborales"));
                 d.put("hlab", rs.getString("hlaborales"));
                 d.put("sbasico", rs.getString("sueldobasico"));
@@ -114,13 +130,13 @@ public class PayrollDAO {
                 d.put("hextra", rs.getString("hextras"));
                 d.put("comisiones", rs.getString("comisiones"));
                 d.put("bono", rs.getString("bono"));
-                d.put("afp", rs.getString("afp"));
-                d.put("onp", rs.getString("onp"));
-                d.put("impuesto", rs.getString("quintacategoria"));
+                d.put("impuesto", rs.getString("impuesto"));
                 d.put("otros", rs.getString("otros"));
                 d.put("essalud", rs.getString("essalud"));
                 d.put("senati", rs.getString("senati"));
-
+                d.put("tipo", rs.getInt("tipo"));
+                d.put("AO", rs.getString("AO"));
+                d.put("interes", rs.getString("interes"));
                 r.add(d);
             }
         } catch (SQLException ex) {

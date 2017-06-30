@@ -36,7 +36,7 @@
             <h3>Planilla</h3>
             <div id="contT"></div>
         </center>
-        <button class="mdl-button">
+        <button style="color: white;margin-left: 7%;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
             Enviar al diario
         </button>
         <button onclick="mod(4, 0)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" style="color: white;float: right;margin-right: 7%;">
