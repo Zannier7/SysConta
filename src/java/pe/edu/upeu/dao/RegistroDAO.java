@@ -36,7 +36,7 @@ public class RegistroDAO {
             cs.setString(1, emp);
             rs = cs.executeQuery();
             while (rs.next()) {
-                e = rs.getInt("idp");
+                e = rs.getInt("idpersona");
             }
             if (e > 0) {
                 System.out.println("Empresa creada");
@@ -47,7 +47,7 @@ public class RegistroDAO {
                 cs.setString(3, dni);
                 rs = cs.executeQuery();
                 while (rs.next()) {
-                    p = rs.getInt("idper");
+                    p = rs.getInt("idpersona");
                 }
                 if (p > 0) {
                     System.out.println("Persona creada");

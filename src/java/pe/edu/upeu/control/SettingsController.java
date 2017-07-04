@@ -47,6 +47,7 @@ public class SettingsController extends HttpServlet {
                 String nuit=request.getParameter("nuit");
                 mp.put("rpta",1);
                 mp.put("status",sd.modifyuit(nuit));
+                mp.put("uit",sd.getuit());
                 break;
             case "createafp":
                 String nombre=request.getParameter("nombre");
@@ -60,8 +61,8 @@ public class SettingsController extends HttpServlet {
                 mp.put("list", sd.listafp());
                 break;
             case "createpuesto":
-                nombre=request.getParameter("nombre");
-                String comision=request.getParameter("comision");
+                nombre=request.getParameter("ncargo");
+                String comision=request.getParameter("ncomision");
                 mp.put("rpta", 1);
                 mp.put("status", sd.createcargo(nombre, comision));
         }

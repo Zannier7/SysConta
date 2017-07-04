@@ -134,13 +134,13 @@
 
                     <tbody class="tbodys" id="lineas">
                         <tr>
-                            <td style="text-align: center">1</td>
+                            <td rowspan="3" style="text-align: center">1</td>
                             <td style="text-align: center">09/05/2017</td>
                             <td style="text-align: center">Por la Compra de Merca ;)</td>
                             <td style="text-align: center"><label style="text-align: center;" id="lb1">101</label></td>
                             <td style="text-align: center"> 
                                 <div class="form-group">
-                                    <!--<label for="sel1">Select list:</label>-->
+                                    <label for="sel1">Select list:</label>
                                     <select class="form-control" id="combo1" >
                                         <% List<Modelo_plancontable> list = PlanContableDAO.listarPLANCONTABLE();%>
                                         <%for (int i = 0; i < list.size(); i++) {
@@ -168,7 +168,6 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="text-align: center">1</td>
                             <td style="text-align: center">09/05/2017</td>
                             <td style="text-align: center">Por la Compra de Merca ;)</td>
                             <td style="text-align: center"><label style="text-align: center;" id="lb2">101</label></td>
@@ -201,13 +200,12 @@
                                     <span class="mdl-textfield__error">Solo números!</span>
                                 </div>
                             </td>  
-
+                            <td> 
                             </td>
                         </tr>
 
 
                         <tr>
-                            <td style="text-align: center">1</td>
                             <td style="text-align: center">09/05/2017</td>
                             <td style="text-align: center">Por la Compra de Merca ;)</td>
                             <td style="text-align: center"><label style="text-align: center;" id="lb3">101</label></td>
@@ -240,7 +238,7 @@
                                     <span class="mdl-textfield__error">Solo números!</span>
                                 </div>
                             </td>  
-
+                            <td>  
                             </td>
                         </tr>
 
@@ -257,11 +255,11 @@
                     </tbody>
 
                 </table>   
-                                       
-	
-	
-	
-	
+
+
+
+
+
 
                 <br>
                 <br>
@@ -271,7 +269,7 @@
             </center>
         </div>
     </div>
-                                        
+
 
 
 

@@ -47,10 +47,10 @@ public class SettingsDao {
 
     public int modifyuit(String valor) {
         int i = 0;
-        sql = "update data_empresa set uit=? where 1";
+        sql = "update data_empresa set uit=? where 1=1";
         try {
             ps = Conexion.getConexion().prepareStatement(sql);
-            ps.setDouble(i, Double.parseDouble(valor));
+            ps.setDouble(1, Double.parseDouble(valor));
             i=ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(SettingsDao.class.getName()).log(Level.SEVERE, null, ex);
@@ -134,7 +134,7 @@ public class SettingsDao {
         sql = "insert into cargo(nombre,comision) values (?,?)";
         try {
             ps = Conexion.getConexion().prepareStatement(sql);
-            ps.setString(i, nombre);
+            ps.setString(1, nombre);
             ps.setDouble(2, Double.parseDouble(comision));
             i = ps.executeUpdate();
         } catch (SQLException ex) {

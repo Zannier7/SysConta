@@ -476,7 +476,7 @@ dnii varchar(10))
 begin
     declare idpersona integer;
         start transaction;
-        insert into persona values(null,nombresi,apellidosi,dnii);
+        insert into persona values(null,nombresi,apellidosi,dnii,0);
         select max(idpersona) as idpersona from persona;
         commit;
 end ;;

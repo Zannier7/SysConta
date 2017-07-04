@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <title>Diario</title>
+        <title>Diario</title>
         <link rel="shortcut icon" type="image/ico" href="../resources/money.ico" />
         <script src="../resources/jquery-2.2.3.min.js" type="text/javascript"></script>
 
@@ -34,7 +34,7 @@
                     <th style="color: #01579b; font-size: 15px; text-align: center">Razón Social</th>
                 </tr>
             </thead>
-
+            <br/><br/>
             <tbody>
                 <tr>
                     <th style="font-size: 15px; text-align: center">1</th>
@@ -68,31 +68,181 @@
         }
         function listar(lista) {
             var m = '';
-            var s='';
-        
-             
-            for (var i = 0; i < lista.length; i++) {
-                          
-                m += '<tr>';
-                m += '<td style="text-align: center">' + lista[i].idplanilla + '</td>';
-                m += '<td style="text-align: center">' + lista[i].fecha + '</td>';
-                m += '<td style="text-align: center">' + lista[i].ntotal + '</td>';
-                m += '<td style="text-align: center">' + lista[i].codigo + '</td>';
-                m += '<td style="text-align: center">' + lista[i].denominacion + '</td>';
-                m += '<td style="text-align: center">' + lista[i].monto + '</td>';
-                m += '<td style="text-align: center">' + lista[i].movimiento + '</td>';
-                m += '</tr>';
+            var s = '';
+
+
+            for (var i = 0; i < lista.length; i++) { //data tabla
+                var n = lista[i].ntotal.toString();
+                var r = lista[i].movimiento.toString();
+                console.log(lista[i].movimiento);
+                if (i == 0) {
+                    m += '<tr>';
+                    m += '<td rowspan="7" style="text-align: center">1</td>';
+                    m += '<td style="text-align: center">' + lista[i].fecha + '</td>';
+                    if (n == "1") {
+                        m += '<td style="text-align: center">Por la centralización de la planilla</td>';
+                    }
+                    if (n == "2") {
+                        m += '<td style="text-align: center">Por el pago de la planilla</td>';
+                    }
+                    if (n == "3") {
+                        m += '<td style="text-align: center">Por el destino de los gastos</td>';
+                    }
+                    m += '<td style="text-align: center">' + lista[i].codigo + '</td>';
+                    m += '<td style="text-align: center">' + lista[i].denominacion + '</td>';
+                    if (r == "1") {
+                        m += '<td style="text-align: center">' + lista[i].monto + '</td>';
+                        m += '<td style="text-align: center">0.00</td>';
+                    }
+                    if (r == "2") {
+                        m += '<td style="text-align: center">0.00</td>';
+                        m += '<td style="text-align: center">' + lista[i].monto + '</td>';
+                    }
+
+
+                    m += '</tr>';
+                } else {
+                    m += '<tr>';
+                    m += '<td style="text-align: center">' + lista[i].fecha + '</td>';
+                    if (n == "1") {
+                        m += '<td style="text-align: center">Por la centralización de la planilla</td>';
+                    }
+                    if (n == "2") {
+                        m += '<td style="text-align: center">Por el pago de la planilla</td>';
+                    }
+                    if (n == "3") {
+                        m += '<td style="text-align: center">Por el destino de los gastos</td>';
+                    }
+                    m += '<td style="text-align: center">' + lista[i].codigo + '</td>';
+                    m += '<td style="text-align: center">' + lista[i].denominacion + '</td>';
+                    if (r == "1") {
+                        m += '<td style="text-align: center">' + lista[i].monto + '</td>';
+                        m += '<td style="text-align: center">0.00</td>';
+                    }
+                    if (r == "2") {
+                        m += '<td style="text-align: center">0.00</td>';
+                        m += '<td style="text-align: center">' + lista[i].monto + '</td>';
+                    }
+
+
+                    m += '</tr>';
+                }
+                if (i == 6) {
+                    m += '<tr>';
+                    m += '<td rowspan="6" style="text-align: center">2</td>';
+                    m += '<td style="text-align: center">' + lista[i].fecha + '</td>';
+                    if (n == "1") {
+                        m += '<td style="text-align: center">Por la centralización de la planilla</td>';
+                    }
+                    if (n == "2") {
+                        m += '<td style="text-align: center">Por el pago de la planilla</td>';
+                    }
+                    if (n == "3") {
+                        m += '<td style="text-align: center">Por el destino de los gastos</td>';
+                    }
+                    m += '<td style="text-align: center">' + lista[i].codigo + '</td>';
+                    m += '<td style="text-align: center">' + lista[i].denominacion + '</td>';
+                    if (r == "1") {
+                        m += '<td style="text-align: center">' + lista[i].monto + '</td>';
+                        m += '<td style="text-align: center">0.00</td>';
+                    }
+                    if (r == "2") {
+                        m += '<td style="text-align: center">0.00</td>';
+                        m += '<td style="text-align: center">' + lista[i].monto + '</td>';
+                    }
+
+
+                    m += '</tr>';
+                } else {
+                    m += '<tr>';
+                    m += '<td style="text-align: center">' + lista[i].fecha + '</td>';
+                    if (n == "1") {
+                        m += '<td style="text-align: center">Por la centralización de la planilla</td>';
+                    }
+                    if (n == "2") {
+                        m += '<td style="text-align: center">Por el pago de la planilla</td>';
+                    }
+                    if (n == "3") {
+                        m += '<td style="text-align: center">Por el destino de los gastos</td>';
+                    }
+                    m += '<td style="text-align: center">' + lista[i].codigo + '</td>';
+                    m += '<td style="text-align: center">' + lista[i].denominacion + '</td>';
+                    if (r == "1") {
+                        m += '<td style="text-align: center">' + lista[i].monto + '</td>';
+                        m += '<td style="text-align: center">0.00</td>';
+                    }
+                    if (r == "2") {
+                        m += '<td style="text-align: center">0.00</td>';
+                        m += '<td style="text-align: center">' + lista[i].monto + '</td>';
+                    }
+
+
+                    m += '</tr>';
+                }
+                if (i == 12) {
+                    m += '<tr>';
+                    m += '<td rowspan="2" style="text-align: center">' + lista[i].idplanilla + '</td>';
+                    m += '<td style="text-align: center">' + lista[i].fecha + '</td>';
+                    if (n == "1") {
+                        m += '<td style="text-align: center">Por la centralización de la planilla</td>';
+                    }
+                    if (n == "2") {
+                        m += '<td style="text-align: center">Por el pago de la planilla</td>';
+                    }
+                    if (n == "3") {
+                        m += '<td style="text-align: center">Por el destino de los gastos</td>';
+                    }
+                    m += '<td style="text-align: center">' + lista[i].codigo + '</td>';
+                    m += '<td style="text-align: center">' + lista[i].denominacion + '</td>';
+                    if (r == "1") {
+                        m += '<td style="text-align: center">' + lista[i].monto + '</td>';
+                        m += '<td style="text-align: center">0.00</td>';
+                    }
+                    if (r == "2") {
+                        m += '<td style="text-align: center">0.00</td>';
+                        m += '<td style="text-align: center">' + lista[i].monto + '</td>';
+                    }
+
+
+                    m += '</tr>';
+                } else {
+                    m += '<tr>';
+                    m += '<td style="text-align: center">' + lista[i].fecha + '</td>';
+                    if (n == "1") {
+                        m += '<td style="text-align: center">Por la centralización de la planilla</td>';
+                    }
+                    if (n == "2") {
+                        m += '<td style="text-align: center">Por el pago de la planilla</td>';
+                    }
+                    if (n == "3") {
+                        m += '<td style="text-align: center">Por el destino de los gastos</td>';
+                    }
+                    m += '<td style="text-align: center">' + lista[i].codigo + '</td>';
+                    m += '<td style="text-align: center">' + lista[i].denominacion + '</td>';
+                    if (r == "1") {
+                        m += '<td style="text-align: center">' + lista[i].monto + '</td>';
+                        m += '<td style="text-align: center">0.00</td>';
+                    }
+                    if (r == "2") {
+                        m += '<td style="text-align: center">0.00</td>';
+                        m += '<td style="text-align: center">' + lista[i].monto + '</td>';
+                    }
+
+
+                    m += '</tr>';
+                }
             }
             $("#contenido").empty();
             $("#contenido").append(createTable());
             $("#hola").empty();
             $("#hola").append(m);
-            
+
         }
 
 
         function createTable() {
             var s = ' <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" cellspacing="0" >';
+            
             s += '<thead>';
             s += '<tr>';
             s += '<th><center>Código Único de la Operación</center></th>';
