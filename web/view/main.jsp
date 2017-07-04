@@ -60,11 +60,19 @@
                 </div>
             </div>
             <div onclick="redirect('main?opc=5')" class="mdl-card mdl-shadow--8dp mdl-cell mdl-cell--4-col mdl-cell--middle mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="max-width: 256px;cursor: pointer">
-                <div class="mdl-card__title" style="background: #ff5252;text-align: center;display: block;">
+                <div class="mdl-card__title" style="background: #f44336;text-align: center;display: block;">
                     <i style="color: white; font-size: 140px" class="large material-icons">person_add</i>
                 </div>
                 <div class="mdl-card__actions mdl-card--border">
-                    <a href="main?opc=5" class="mdl-button mdl-button--colored mdl-js-button" style="display:block;color: #ff5252">Contratación</a>
+                    <a href="main?opc=5" class="mdl-button mdl-button--colored mdl-js-button" style="display:block;color: #f44336">Contratación</a>
+                </div>
+            </div>
+            <div onclick="redirect('main?opc=7')" class="mdl-card mdl-shadow--8dp mdl-cell mdl-cell--4-col mdl-cell--middle mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="max-width: 256px;cursor: pointer">
+                <div class="mdl-card__title" style="background: #ba000d;text-align: center;display: block">
+                    <i style="color: white; font-size: 140px" class="large material-icons">card_giftcard</i>
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a href="#" class="mdl-button mdl-button--colored mdl-js-button" style="display:block;color: #ba000d">Beneficios a Empleados</a>
                 </div>
             </div>
         </div>
