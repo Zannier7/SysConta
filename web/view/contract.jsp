@@ -30,7 +30,7 @@
         <div>
             <h3>Contrato</h3>
             <form action="#">
-                <div style="width: 80%;">
+                <div id="contract" style="width: 80%;">
                     <div style="width: 100%;height: 150px;"><!--DATOS PERSONALES-->
                         <h5 style="text-align: left">Datos personales</h5>
                         <div style="width: 33%;float: left">
@@ -89,7 +89,7 @@
                             </div>
                         </div>
                     </div>
-                    <div style="width: 100%;height: 150px;d"><!--DATOS Financieros-->
+                    <div style="width: 100%;height: 150px;"><!--DATOS Financieros-->
                         <h5 style="text-align: left">Datos Financieros</h5>
                         <div style="width: 33%;float: right">
                             <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="asignf">
@@ -115,15 +115,54 @@
                             </div>
                         </div>
                     </div>
-                    <div style="width: 100%;height: 150px;d">
+                </div>
+                    <div id="btnst" style="width: 100%;height: 150px;">
                         <input type="button" id="env" class="mdl-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" value="Confirmar">
                     </div>
-                </div>
             </form>
         </div>
     </center>
     <script>
         $(document).ready(function () {
+            $("#asignf").click(function () {
+                if ($("#asignf").is(":checked")) {
+                    var info = '<div id="famform"><div id="famdata" style="width: 100%;height: 150px;">' +
+                            '<h5 style="text-align: left">Datos De Familiares</h5>' +
+                            '<div style="width: 33%;float: right">' +
+                            '<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">' +
+                            '<input class="mdl-textfield__input" type="text" name="fnombre" id="fnombre">' +
+                            '<label class="mdl-textfield__label" for="fnombre">Nombres</label>' +
+                            '</div>' +
+                            '</div>' +
+                            '<div style="width: 33%;float: right">' +
+                            '<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">' +
+                            '<input class="mdl-textfield__input" type="text" name="fapellido" id="fapellido">' +
+                            '<label class="mdl-textfield__label" for="fapellido">Apellidos</label>' +
+                            '</div>' +
+                            '</div>' +
+                            '<div style="width: 33%;float: left">' +
+                            '<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">' +
+                            '<input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="hola" name="hola">' +
+                            '<label class="mdl-textfield__label" for="hola">Número de Teléfono</label>' +
+                            '<span class="mdl-textfield__error">¡No es un número!</span>' +
+                            '</div>' +
+                            '</div>' +
+                            '<div style="width: 33%;float: right">' +
+                            '<select name="vinculo" id="vinculo" style="width: 95%;" placeholder="Vínculo">' +
+                            '<option value="1">Hijo(a)</option>' +
+                            '<option value="2">Esposo(a)</option>' +
+                            '</select>' +
+                            '</div>' +
+                            '</div>'+
+                            '<div id="dadd" style="width: 100%;height: 150px;">'+
+                            '<input type="button" id="btnadd" class="mdl-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" value="Agregar un pariente">'+
+                            '</div></div>';
+                    $("#contract").append(info);
+                    $("#vinculo").select2();
+                } else {
+                    $("#famform").remove();
+                }
+            });
             $.post("../reg?opc=2&tipe=getcargo", function (ObjJson) {
                 if (ObjJson != null) {
                     var lista = ObjJson.lista;
@@ -134,15 +173,16 @@
             });
             $("#listcargo").select2();
             $("#pension").select2();
-            var $fini=$("#fini").pickadate();
-            var $ffin=$("#ffin").pickadate();
+            var $fini = $("#fini").pickadate();
+            var $ffin = $("#ffin").pickadate();
             $("#env").click(function () {
                 var nombre = $("#nombre").val();
                 var ap = $("#apellidos").val();
                 var dni = $("#dni").val();
                 var hrlab = $("#hrlab").val();
                 var fini = $fini.pickadate('picker');
-                var ffin = $ffin.pickadate('picker');;
+                var ffin = $ffin.pickadate('picker');
+                ;
                 var cargo = $("#listcargo").val();
                 var dlab = $("#dlab").val();
                 var sbase = $("#sbase").val();
@@ -150,6 +190,7 @@
                 var asigf;
                 if ($("#asignf").is(":checked")) {
                     asigf = 1;
+                    
                 } else {
                     asigf = 0;
                 }
@@ -159,8 +200,8 @@
                     data += "&apellidos=" + ap;
                     data += "&dni=" + dni;
                     data += "&hrlab=" + hrlab;
-                    data += "&fini=" + fini.get('select','yyyy-mm-dd');
-                    data += "&ffin=" + ffin.get('select','yyyy-mm-dd');
+                    data += "&fini=" + fini.get('select', 'yyyy-mm-dd');
+                    data += "&ffin=" + ffin.get('select', 'yyyy-mm-dd');
                     data += "&idcargo=" + cargo;
                     data += "&dlab=" + dlab;
                     data += "&sbase=" + sbase;
@@ -173,7 +214,7 @@
                                 text: 'El trabajador ha sido contratado',
                                 type: 'success'
                             });
-                            window.top.location.href='../main?opc=2';
+                            window.top.location.href = '../main?opc=2';
                         }
                     });
 

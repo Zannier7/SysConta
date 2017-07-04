@@ -480,11 +480,11 @@ CREATE TABLE `contrato` (
   `fechaingreso` date NOT NULL,
   `fechasalida` date NOT NULL,
   `idcargo` int(11) NOT NULL,
-  `asigfamiliar` char(1) NOT NULL,
+  `asigfamiliar` char(1) NOT NULL DEFAULT 0,
   `dlaborales` varchar(1) NOT NULL,
   `hlaborales` varchar(20) NOT NULL,
   `sueldo` double NOT NULL,
-  `pension` char(2) NOT NULL,
+  `pension` char(2) NOT NULL DEFAULT 0,
   PRIMARY KEY (`idcontrato`)
 );
 CREATE TABLE `planilla` (
