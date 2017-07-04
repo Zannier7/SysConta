@@ -172,13 +172,17 @@
                     <div class="mdl-dialog__content">
                         <form>
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" id="iname">
-                                <label class="mdl-textfield__label" for="iname">Nombre del puesto</label>
+                                <input class="mdl-textfield__input" type="text" id="ncargo">
+                                <label class="mdl-textfield__label" for="ncargo">Nombre del puesto</label>
+                            </div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="text" id="ncomision">
+                                <label class="mdl-textfield__label" for="ncomision">Asignar Comisión</label>
                             </div>
                             <div>
                                 <center>
-                                    <button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color: #1976d2">
-                                        GUARDAR
+                                    <button type="button" id='ccbtn' class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color: #1976d2">
+                                        Crear
                                     </button>
                                 </center>
                             </div>
