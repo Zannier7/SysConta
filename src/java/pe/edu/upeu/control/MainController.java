@@ -73,6 +73,10 @@ public class MainController extends HttpServlet {
                 dispatcher = getServletContext().getRequestDispatcher("/view/main.jsp");
                 dispatcher.forward(request, response);
                 break;
+            case 7:
+                dispatcher = getServletContext().getRequestDispatcher("/view/extra.jsp");
+                dispatcher.forward(request, response);
+                break;
         }
 
     }
