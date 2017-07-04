@@ -38,52 +38,28 @@
                     }
                 </style>
 
+
                 <div class="demo-card-square mdl-card mdl-shadow--8dp mdl-cell mdl-cell--3-col">
-                    <div class="mdl-card__title mdl-card--expand">
+                    <div class="mdl-card__title md-card--expand">
                         <i style="color: white; font-size: 100px" class="large material-icons">settings</i>
-                        <h2 class="mdl-card__title-text" style="text-align: center;">Ajustes de Planilla</h2>
+                        <h2 class="mdl-card__title-text" style="text-align: center;">Configuraciones de Planilla</h2>
+
 
                     </div>
+
+                    <h5 class="mdl-dialog__title" style=" color: #1976d2">Modificar Datos UIT</h5>
                     <div class="mdl-card__supporting-text">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+
                             <label id="uit">0.00</label>
                             <label class="mdl-textfield__label" for="uit">UIT: </label>
+
                         </div>
-                        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-                            <thead>
-                                <tr>
-                                    <th class="mdl-data-table__cell--non-numeric">Impuesto a la renta<th>PORCENTAJE</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td data-label="Material" class="mdl-data-table__cell--non-numeric">Hasta 5 UIT</td>
-                                    <td data-label="Quantity">8%</td>
-
-                                </tr>
-                                <tr>
-                                    <td data-label="Material" class="mdl-data-table__cell--non-numeric">De 5 a 20 UIT</td>
-                                    <td data-label="Quantity">14%</td>
-
-                                </tr>
-                                <tr>
-                                    <td data-label="Material" class="mdl-data-table__cell--non-numeric">De 20 a 35 UIT</td>
-                                    <td data-label="Quantity"> 17%</td>
-
-                                </tr>
-                                <tr>
-                                    <td data-label="Material" class="mdl-data-table__cell--non-numeric">De 35 a 45 UIT</td>
-                                    <td data-label="Quantity">20%</td>
-
-                                </tr>
-                                <tr>
-                                    <td data-label="Material" class="mdl-data-table__cell--non-numeric">Más de 45 UIT</td>
-                                    <td data-label="Quantity">30%</td>
-
-                                </tr>
-                            </tbody>
-                        </table>
+                        <button id="muitbtn" type="button" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color: #1976d2">
+                            Ver UIT
+                        </button>
+                    </div>
+                    <div class="mdl-dialog__content">
                         <form>
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                 <input type="hidden" value="modifyuit" name="opc">
@@ -91,17 +67,16 @@
                                 <label class="mdl-textfield__label" for="nuit">Ingresar nuevo valor UIT.</label>
                                 <span class="mdl-textfield__error">Se requiere de nùmeros!</span>
                             </div>
-                            <div class="mdl-card__actions mdl-card--border">
-                                <center>
-                                    <button id="muitbtn" type="button" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color: #1976d2">
-                                        MODIFICAR UIT
-                                    </button>
-                                </center>
-                            </div>
+
+                            <center>
+                                <button id="muitbtn" type="button" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color: #1976d2">
+                                    MODIFICAR UIT
+                                </button>
+
+                            </center>
+
                         </form>
-
                     </div>
-
 
                 </div>
 
@@ -342,10 +317,10 @@
                 </div>
             </div>
             <script>
-                $(document).ready(function(){
-                    $.post("../settings?op=getuit",function(obj){
+                $(document).ready(function () {
+                    $.post("./settings?op=getuit", function (obj) {
                         console.log(obj);
-                        var uit=obj.uit;
+                        var uit = obj.uit;
                         $("#uit").empty();
                         $("#uit").append(uit);
                     })
@@ -399,15 +374,7 @@
                     }
                 }
             </script>
-            <%
-                String cod = request.getParameter("iut");
-                Connection cnx = null;
-                ResultSet rs = null;
-                Statement sta = null;
-                Class.forName("com.mysql.jdbc.Driver");
 
-
-            %>
 
 
     </body>
