@@ -31,6 +31,7 @@
                     <a href="main?opc=4" target="frame" class="mdl-layout__tab l2" onclick="ch('l2')">Planilla</a>
                     <!-- <a href="view/settings.jsp" target="frame" class="mdl-layout__tab l3" onclick="ch('l3')">Configuraciones</a>-->
                     <!--<a href="view/contract.jsp" target="frame" class="mdl-layout__tab l4" onclick="ch('l4')">Contratos</a>-->
+                    <a href="main?opc=6" class="mdl-layout__tab" style="float: right">.<i class="material-icons">home</i></a>
                 </div>
             </header>
             <script>

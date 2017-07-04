@@ -182,7 +182,6 @@
                 var hrlab = $("#hrlab").val();
                 var fini = $fini.pickadate('picker');
                 var ffin = $ffin.pickadate('picker');
-                ;
                 var cargo = $("#listcargo").val();
                 var dlab = $("#dlab").val();
                 var sbase = $("#sbase").val();
@@ -194,7 +193,8 @@
                 } else {
                     asigf = 0;
                 }
-                if (nombre != "" && ap != "" && dni != "" && hrlab != "" && fini != "" && ffin != "" && cargo != "" && dlab != "" && asigf != "" && sbase != "" && pension != "") {
+                if (nombre !== "" && ap !== "" && dni !== "" && hrlab !== "" && fini.get('select', 'yyyy-mm-dd') !== "" && ffin.get('select', 'yyyy-mm-dd') !==
+                        "" && cargo !== "" && dlab !== "" && asigf !== "" && sbase !== "" && pension !== "") {
                     var url = "reg?opc=2&tipe=registrar";
                     var data = "nombre=" + nombre;
                     data += "&apellidos=" + ap;
@@ -224,6 +224,7 @@
                         text: 'Faltan ingresar algunos datos necesarios',
                         type: 'error'
                     });
+                    alert(nombre+" "+ap+" "+dni+" "+hrlab+" "+fini.get('select', 'yyyy-mm-dd')+" "+ffin.get('select', 'yyyy-mm-dd')+" "+cargo+" "+dlab+" "+nombre+" "+asigf+" "+sbase+" "+pension)
                 }
             });
         });

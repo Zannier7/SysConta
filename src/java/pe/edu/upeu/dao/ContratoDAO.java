@@ -104,7 +104,8 @@ public class ContratoDAO {
             while(rs.next()){
                 idpersona=rs.getInt("idpersona");
             }
-            sql="insert into contrato(idpersona,fechaingreso,fechasalida,idcargo,asigfamiliar,dlaborales,hlaborales,sueldo,pension) values (?,?,?,?,?,?,?,?,?)";
+            System.out.println("persona "+idpersona );
+            sql="insert into contrato(idpersona,fechaingreso,fechasalida,idcargo,asigfamiliar,dlaborales,hlaborales,sueldobasico,idafiliacion) values (?,?,?,?,?,?,?,?,?)";
             ps=cn.prepareStatement(sql);
             ps.setInt(1, idpersona);
             ps.setString(2, fini);
@@ -114,10 +115,12 @@ public class ContratoDAO {
             ps.setString(6, dlab);
             ps.setString(7, hrlab);
             ps.setDouble(8, Double.parseDouble(sbase));
-            ps.setString(9, pension);
+            ps.setInt(9, Integer.parseInt(pension));
             n=ps.executeUpdate();
         } catch (Exception ex) {
             System.out.println("Error al agregar contrato al registro " + ex);
+        }finally{
+            Conexion.cerrar();
         }
         return n;
     }

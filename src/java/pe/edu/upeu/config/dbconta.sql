@@ -110,7 +110,7 @@ DROP TABLE IF EXISTS `data_empresa`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `data_empresa` (
   `idPlanillaconfig` int(11) NOT NULL AUTO_INCREMENT,
-  `uit` varchar(100) DEFAULT NULL,
+  `uit` double DEFAULT NULL,
   PRIMARY KEY (`idPlanillaconfig`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
