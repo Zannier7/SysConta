@@ -74,7 +74,7 @@ public class RegisterController extends HttpServlet {
                             String asignf=request.getParameter("asignf");
                             String sbase=request.getParameter("sbase");
                             String pension=request.getParameter("pension");
-                            System.out.println("hola: "+asignf+", "+nombre+" "+regdni+" "+ap+" "+cargo+" "+fini+" "+ffin+" "+hrlab+" "+dlab+" "+sbase);
+                            System.out.println("hola: "+asignf+", "+nombre+" "+regdni+" "+ap+" "+cargo+" "+fini+" "+ffin+" "+hrlab+" "+dlab+" "+sbase+" "+pension);
                             mp.put("rpta",cd.gethired(nombre, regdni, ap, cargo, fini, ffin, hrlab, dlab, asignf, sbase,pension));
                             break;
                         case "getcargo":
