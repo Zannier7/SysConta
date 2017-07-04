@@ -93,7 +93,7 @@
                 <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
                 <h1 class="mdl-mega-footer__heading">Detalles de Curso</h1>
                 <ul class="mdl-mega-footer__link-list">
-                    <li><a href="#">Mg. Cachay Silvia</a></li>
+                    <li><a href="#">Mg. Cachay Salcedo Silvia Mabel</a></li>
                     <li><a href="#">Contabilidad</a></li>
                 </ul>
             </div>

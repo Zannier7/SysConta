@@ -86,9 +86,9 @@ public class LoginController extends HttpServlet {
             case 1://validar
                 Map<String, Object> h = uO.validarUser(a, b);
                 if (h.get("idpersona") != null) {
-                    HttpSession session = request.getSession();
+                    /*HttpSession session = request.getSession();
                     session.setAttribute("idusuario", h.get("idusuario"));
-                    session.setAttribute("idrol", h.get("idrol"));
+                    session.setAttribute("idrol", h.get("idrol"));*/
                     dispatcher = getServletContext().getRequestDispatcher("/view/main.jsp");
                     dispatcher.forward(request, response);
                 } else {
