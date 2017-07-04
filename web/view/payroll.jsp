@@ -10,12 +10,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Planilla</title>
-        <link rel="shortcut icon" type="image/ico" href="../resources/money.ico" />
-        <script src="../resources/jquery-2.2.3.min.js" type="text/javascript"></script>
-        <link href="../resources/Material+Icons.css" rel="stylesheet" type="text/css"/>
-        <script src="../resources/material.js" type="text/javascript"></script>
-        <link href="../resources/material.min.css" rel="stylesheet" type="text/css"/>
-        <script src="../resources/material.min.js" type="text/javascript"></script>
+        <link rel="shortcut icon" type="image/ico" href="resources/money.ico" />
+        <script src="resources/jquery-2.2.3.min.js" type="text/javascript"></script>
+        <link href="resources/Material+Icons.css" rel="stylesheet" type="text/css"/>
+        <script src="resources/material.js" type="text/javascript"></script>
+        <link href="resources/material.min.css" rel="stylesheet" type="text/css"/>
+        <script src="resources/material.min.js" type="text/javascript"></script>
     </head>
     <body>
     <center><div id="noData" class="maia-col-4 card services-track mdl-card mdl-shadow--2dp">
@@ -79,7 +79,7 @@
         });
         var uit = 4050;
         function validar() {
-            var url = '../payroll';
+            var url = 'payroll';
             var data = 'opc=1';
             $.post(url, data, function (objJson) {
                 var a = objJson.lista;
@@ -331,7 +331,7 @@
         }
 
         function dataWorker(id) {
-            var url = '../payroll?opc=2';
+            var url = 'payroll?opc=2';
             var data = 'id=' + id;
             $.post(url, data, function (objJson) {
                 var a = objJson.trabajador;
@@ -391,7 +391,7 @@
         }
 
         function dataDiscount(id, remu) {
-            var url = '../payroll?opc=2';
+            var url = 'payroll?opc=2';
             var data = 'id=' + id;
             $.post(url, data, function (objJson) {
                 var a = objJson.trabajador;
@@ -499,7 +499,7 @@
         }
 
         function dataRemuneration(id) {
-            var url = '../payroll?opc=2';
+            var url = 'payroll?opc=2';
             var data = 'id=' + id;
             $.post(url, data, function (objJson) {
                 var a = objJson.trabajador;
@@ -582,7 +582,7 @@
 
         function sendDiario() {
 
-            var url = '../payroll';
+            var url = 'payroll';
             var data = 'opc=3';
             $.post(url, data, function (hola) {
                 var id = hola.idplanilla;
@@ -598,7 +598,7 @@
                 var tipo = [1, 1, 2, 2, 2, 2, 2, 2];
                 //CENTRALIZACION
                 for (var i = 0; i < codigo.length; i++) {
-                    var url = "../payroll?opc=4";
+                    var url = "payroll?opc=4";
                     var data = "idplanilla=" + id;
                     data += "&ntotal=1";
                     data += "&codigo=" + codigo[i];
@@ -613,7 +613,7 @@
                 var montoP = [I, A, 50, 60, X, DE];
                 var tipoP = [1, 1, 1, 1, 1, 2];
                 for (var i = 0; i < codigoP.length; i++) {
-                    var url = "../payroll?opc=4";
+                    var url = "payroll?opc=4";
                     var data = "idplanilla=" + id;
                     data += "&ntotal=2";
                     data += "&codigo=" + codigoP[i];
@@ -628,7 +628,7 @@
                 var montoD = [DE, DE];
                 var tipoD = [1, 2];
                 for (var i = 0; i < codigoD.length; i++) {
-                    var url = "../payroll?opc=4";
+                    var url = "payroll?opc=4";
                     var data = "idplanilla=" + id;
                     data += "&ntotal=3";
                     data += "&codigo=" + codigoD[i];

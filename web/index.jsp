@@ -28,9 +28,9 @@
                 <!-- Tabs -->
                 <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
                     <a href="view/info.jsp" target="frame" class="mdl-layout__tab l1 is-active" onclick="ch('l1')">Info</a>
-                    <a href="view/payroll.jsp" target="frame" class="mdl-layout__tab l2" onclick="ch('l2')">Planilla</a>
+                    <a href="main?opc=4" target="frame" class="mdl-layout__tab l2" onclick="ch('l2')">Planilla</a>
                     <!-- <a href="view/settings.jsp" target="frame" class="mdl-layout__tab l3" onclick="ch('l3')">Configuraciones</a>-->
-                    <a href="view/contract.jsp" target="frame" class="mdl-layout__tab l4" onclick="ch('l4')">Contratos</a>
+                    <!--<a href="view/contract.jsp" target="frame" class="mdl-layout__tab l4" onclick="ch('l4')">Contratos</a>-->
                 </div>
             </header>
             <script>
@@ -47,7 +47,7 @@
                 <nav class="mdl-navigation">
                     <a class="mdl-navigation__link" href="view/payroll.jsp" target="frame">Planilla</a>
                     <!--<a class="mdl-navigation__link" href="view/settings.jsp" target="frame">Configuraciones</a>-->
-                    <a class="mdl-navigation__link" href="view/contract.jsp" target="frame">Contratos</a>
+                    <!--<a class="mdl-navigation__link" href="view/contract.jsp" target="frame">Contratos</a>-->
                 </nav>
             </div>
             <main class="mdl-layout__content">

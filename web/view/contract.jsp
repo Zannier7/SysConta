@@ -10,19 +10,19 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <script src="../resources/jquery-2.2.3.min.js" type="text/javascript"></script>
-        <link href="../resources/material.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../resources/Material+Icons.css" rel="stylesheet" type="text/css"/>
-        <script src="../resources/material.js" type="text/javascript"></script>
-        <link href="../resources/pnotify.custom.min.css" rel="stylesheet" type="text/css"/>
-        <script src="../resources/pnotify.custom.min.js" type="text/javascript"></script>
-        <script src="../resources/select2.min.js" type="text/javascript"></script>
-        <link href="../resources/select2.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../resources/classic.css" rel="stylesheet" type="text/css"/>
-        <link href="../resources/classic.date.css" rel="stylesheet" type="text/css"/>
-        <script src="../resources/picker.js" type="text/javascript"></script>
-        <script src="../resources/picker.date.js" type="text/javascript"></script>
-        <script src="../resources/es_ES.js" type="text/javascript"></script>
+        <script src="resources/jquery-2.2.3.min.js" type="text/javascript"></script>
+        <link href="resources/material.min.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/Material+Icons.css" rel="stylesheet" type="text/css"/>
+        <script src="resources/material.js" type="text/javascript"></script>
+        <link href="resources/pnotify.custom.min.css" rel="stylesheet" type="text/css"/>
+        <script src="resources/pnotify.custom.min.js" type="text/javascript"></script>
+        <script src="resources/select2.min.js" type="text/javascript"></script>
+        <link href="resources/select2.min.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/classic.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/classic.date.css" rel="stylesheet" type="text/css"/>
+        <script src="resources/picker.js" type="text/javascript"></script>
+        <script src="resources/picker.date.js" type="text/javascript"></script>
+        <script src="resources/es_ES.js" type="text/javascript"></script>
 
     </head>
     <body>
@@ -163,7 +163,7 @@
                     $("#famform").remove();
                 }
             });
-            $.post("../reg?opc=2&tipe=getcargo", function (ObjJson) {
+            $.post("reg?opc=2&tipe=getcargo", function (ObjJson) {
                 if (ObjJson != null) {
                     var lista = ObjJson.lista;
                     for (var i = 0; i < lista.length; i++) {
@@ -195,7 +195,7 @@
                     asigf = 0;
                 }
                 if (nombre != "" && ap != "" && dni != "" && hrlab != "" && fini != "" && ffin != "" && cargo != "" && dlab != "" && asigf != "" && sbase != "" && pension != "") {
-                    var url = "../reg?opc=2&tipe=registrar";
+                    var url = "reg?opc=2&tipe=registrar";
                     var data = "nombre=" + nombre;
                     data += "&apellidos=" + ap;
                     data += "&dni=" + dni;
@@ -214,7 +214,7 @@
                                 text: 'El trabajador ha sido contratado',
                                 type: 'success'
                             });
-                            window.top.location.href = '../main?opc=2';
+                            window.top.location.href = 'main?opc=2';
                         }
                     });
 

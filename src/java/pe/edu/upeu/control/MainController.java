@@ -53,13 +53,22 @@ public class MainController extends HttpServlet {
                 dispatcher = getServletContext().getRequestDispatcher(pagina);
                 dispatcher.forward(request, response);
                 break;
-                
+
             case 3:
                 pagina = "/view/configuraciones.jsp";
                 dispatcher = getServletContext().getRequestDispatcher(pagina);
                 dispatcher.forward(request, response);
                 break;
-
+            case 4:
+                pagina = "/view/payroll.jsp";
+                dispatcher = getServletContext().getRequestDispatcher(pagina);
+                dispatcher.forward(request, response);
+                break;
+            case 5:
+                pagina = "/view/contract.jsp";
+                dispatcher = getServletContext().getRequestDispatcher(pagina);
+                dispatcher.forward(request, response);
+                break;
         }
 
     }
