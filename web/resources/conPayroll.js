@@ -32,12 +32,16 @@ function listar(lista) {
     var total = 0;
     for (var i = 0; i < lista.length; i++) {
         //CALCULO DE TOTAL
+        var tp = 0;
         var remu = 0;
+        var des = 0
         var h = lista[i].hextra;
         var sbas = lista[i].sbasico;
         var f = 0;
         var af = lista[i].afami;
         var caf = 0;
+        var comi = lista[i].comision;
+        var com = (comi / 100) * sbas;
         if (h > 0) {
             if (h > 2) {
                 var r = h - 2;
@@ -51,7 +55,9 @@ function listar(lista) {
         if (af == 1) {
             caf = 85.00;
         }
-        remu = parseInt(sbas) + parseInt(caf) + parseInt(lista[i].bono) + f;//FALTA SUMAR LA COMISION
+        var bon = lista[i].bono;
+        remu = parseInt(sbas) + parseInt(caf) + com + f + bon;//FALTA SUMAR LA COMISION
+        tremun = tremun + remu;
         var inter = lista[i].interes;
         var ao = remu * inter;
         //CALCULO DEL IMP. RENTA
@@ -64,7 +70,7 @@ function listar(lista) {
             var sc = 20 * uit;
             if (sr > sc) {
                 var a = sc - pc;
-                
+
             } else {//NO PASA DE LAS 20 UITs
                 ImR = ((pc * 0.08) + ((sr - pc) * 0.14)) / 12;
             }
@@ -75,7 +81,10 @@ function listar(lista) {
                 ImR = (sr * 0.08) / 12;
             }
         }
+        des = ao + ImR;
         ImR = ImR.toFixed(2);
+        var essa = 0.09 * remu;
+        tp = remu - des + essa;
         m += '<tr>';
         m += '<td>' + lista[i].persona + '</td>';
         m += '<td>' + lista[i].cargo + '</td>';
@@ -89,13 +98,12 @@ function listar(lista) {
         m += '<i class="material-icons">trending_up</i>';
         m += '</button></td>';
         m += '<td>' + ImR + '</td>';
-        m += '<td>' + lista[i].otros + '</td>';
+        m += '<td>' + des.toFixed(2) + '</td>';
         m += '<td><button type="button" onclick="mod(3,' + lista[i].idpersona + ')" id="btn3" style="background: #7b1fa2;color:white" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">';
         m += '<i class="material-icons">trending_down</i>';
         m += '</button></td>';
-        m += '<td>' + lista[i].essalud + '</td>';
-        m += '<td>' + lista[i].senati + '</td>';
-        m += '<td>5400</td>';
+        m += '<td>' + essa.toFixed(2) + '</td>';
+        m += '<td>' + tp.toFixed(2) + '</td>';
         m += '</tr>';
     }
     $("#contT").empty();
@@ -382,15 +390,21 @@ function dataRemuneration(id) {
     $.post(url, data, function (objJson) {
         var a = objJson.trabajador;
         for (var i = 0; i < a.length; i++) {
+            var af = a[i].afami;
+            if (af == 1) {
+                $("#iaf").empty();
+                $("#iaf").append("85.00");
+            }else{
+                $("#iaf").empty();
+                $("#iaf").append("0.00");
+            }
             $("#isb").empty();
             var sbas = a[i].sbasico;
             $("#isb").append(sbas);
             $("#inh").empty();
-            $("#inh").append(a[i].cargo + " " + "");
-            $("#iaf").empty();
-            $("#iaf").append(a[i].dlab);
+            $("#inh").append("n " + "hijos");
             $("#ibe").empty();
-            $("#ibe").append(a[i].hlab);
+            $("#ibe").append(a[i].bono);
             $("#ico").empty();
             $("#ico").append(a[i].hextra);
             $("#inhe").empty();
@@ -423,9 +437,9 @@ function createTable() {
     s += '<thead>';
     s += '<tr>';
     s += '<th colspan="3"><center>Datos del Trabajador</center></th>';
-    s += '<th colspan="3" style="color: #558b2f"><center>Remuneraciones</center></th>';
+    s += '<th colspan="4" style="color: #558b2f"><center>Remuneraciones</center></th>';
     s += '<th colspan="3" style="color: #e65100"><center>Descuentos</center></th>';
-    s += '<th colspan="2" style="color: #01579b"><center>Aportes</center></th>';
+    s += '<th colspan="1" style="color: #01579b"><center>Aportes</center></th>';
     s += '<th colspan="1" style="color: #d50000"><center>Monto a Pagar</center></th>';
     s += '</tr>';
     s += '<tr>';
@@ -437,10 +451,9 @@ function createTable() {
     s += '<th style="color: #558b2f">Total</th>';
     s += '<th></th>';
     s += '<th style="color: #e65100">Imp. Renta</th>';
-    s += '<th style="color: #e65100">Otros</th>';
+    s += '<th style="color: #e65100">Total</th>';
     s += '<th></th>';
     s += '<th style="color: #01579b">EsSalud</th>';
-    s += '<th style="color: #01579b">Senati</th>';
     s += '<th style="color: #d50000">Total</th>';
     s += '</tr>';
     s += '</thead>';
