@@ -259,6 +259,7 @@ CREATE TABLE `persona` (
   `nombres` varchar(100) NOT NULL,
   `apellidos` varchar(100) NOT NULL,
   `dni` int(10) NOT NULL,
+  `idvinculo` int(11) NOT NULL,
   PRIMARY KEY (`idpersona`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -517,3 +518,13 @@ DELIMITER ;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2017-07-03 22:51:29
+
+
+DROP TABLE IF EXISTS `idvinculo`;
+CREATE TABLE `idvinculo` (
+  `idvinculo` int(11) NOT NULL AUTO_INCREMENT,
+  `idpersona` varchar(100) NOT NULL,
+  `tipo` varchar(100) NOT NULL,
+  `idtrabajador` int(10) NOT NULL,
+  PRIMARY KEY (`idvinculo`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
