@@ -38,7 +38,7 @@ public class PayrollDAO {
                 + "and c.idcontrato=s.idcontrato "
                 + "and c.fechaingreso >= '2015-04-05' "
                 + "and c.fechasalida <= '2018-06-08'  "
-                + "and s.fecha between c.fechaingreso and c.fechasalida;";
+                + "and s.fecha between c.fechaingreso and c.fechasalida";
         try {
             ps = Conexion.getConexion().prepareStatement(sql);
             rs = ps.executeQuery();
@@ -127,4 +127,48 @@ public class PayrollDAO {
         return r;
     }
 
+    public int Reg_planilla() {
+        int s = 0;
+        try {
+            sql = "insert into planilla values (null,sysdate())";
+            ps = Conexion.getConexion().prepareCall(sql);
+            s = ps.executeUpdate();
+            if (s > 0) {
+                sql = "select max(idplanilla) idplanilla from planilla";
+                ps = Conexion.getConexion().prepareCall(sql);
+                rs = ps.executeQuery();
+                while (rs.next()) {
+                    s = rs.getInt("idplanilla");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error al registrar planilla : " + e);
+        }
+        return s;
+    }
+
+    public boolean add(Object o) {
+        boolean p = false;
+        sql = "INSERT INTO det_planilla VALUES(null,?,?,?,?,?,?)";
+        Map<String, Object> m = (Map<String, Object>) o;
+        try {
+            ps = Conexion.getConexion().prepareStatement(sql);
+            ps.setInt(1, Integer.parseInt(m.get("id").toString()));
+            ps.setInt(2, Integer.parseInt(m.get("asiento").toString()));
+            ps.setInt(3, Integer.parseInt(m.get("codigo").toString()));
+            ps.setString(4, m.get("denominacion").toString());
+            ps.setDouble(5, Double.parseDouble(m.get("monto").toString()));
+            ps.setInt(6, Integer.parseInt(m.get("tipo").toString()));
+            int r = ps.executeUpdate();
+            if (r > 0) {
+                p = true;
+            }
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("Error al agregar DETPLANILLA " + e);
+            p = false;
+        }
+        return p;
+    }
+    
+    
 }

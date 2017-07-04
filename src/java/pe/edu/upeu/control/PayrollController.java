@@ -39,6 +39,9 @@ public class PayrollController extends HttpServlet {
         response.setContentType("application/json;charset=UTF-8");
         PrintWriter out = response.getWriter();
         int opc = Integer.parseInt(request.getParameter("opc"));
+        int idplanilla, codigo, tipo, asiento;
+        double monto;
+        String denominacion;
         try {
             switch (opc) {
                 case 1://validar
@@ -47,6 +50,28 @@ public class PayrollController extends HttpServlet {
                 case 2://listar un trabajador
                     int id = Integer.parseInt(request.getParameter("id"));
                     mp.put("trabajador", pd.listWorker(id));
+                    break;
+                case 3://add Planilla
+                    mp.put("idplanilla", pd.Reg_planilla());
+                    break;
+                case 4://REGISTRO EN DET_PLANILLA -- ASIENTOS DEL DIARIO
+                    idplanilla = Integer.parseInt(request.getParameter("idplanilla"));
+                    asiento = Integer.parseInt(request.getParameter("ntotal"));
+                    codigo = Integer.parseInt(request.getParameter("codigo"));
+                    denominacion = request.getParameter("denominacion");
+                    monto = Double.parseDouble(request.getParameter("monto"));
+                    tipo = Integer.parseInt(request.getParameter("movimiento"));
+                    Map<String, Object> s = new HashMap<>();
+                    s.put("id", idplanilla);
+                    s.put("asiento", asiento);
+                    s.put("codigo", codigo);
+                    s.put("denominacion", denominacion);
+                    s.put("monto", monto);
+                    s.put("tipo", tipo);
+                    System.out.println(s);
+                    pd.add(s);
+                    break;
+                case 5:
                     break;
             }
         } catch (Exception e) {
