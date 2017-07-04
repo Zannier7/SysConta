@@ -5,18 +5,24 @@
  */
 package pe.edu.upeu.control;
 
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import pe.edu.upeu.dao.SettingsDao;
 
 /**
  *
  * @author César
  */
 public class SettingsController extends HttpServlet {
+    SettingsDao sd = new SettingsDao();
+    Map<String, Object> mp = new HashMap<>();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,12 +37,32 @@ public class SettingsController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String op=request.getParameter("op");
-        switch(op){
+        String op = request.getParameter("op");
+        switch (op) {
             case "getuit":
-                
+                mp=sd.getuit();
                 break;
+            case "createafp":
+                String nombre=request.getParameter("nombre");
+                String tipo=request.getParameter("tipo");
+                String interes=request.getParameter("interes");
+                mp.put("rpta", 1);
+                mp.put("status", sd.createafp(nombre, tipo, interes));
+                break;
+            case "listafp":
+                mp.put("rpta", 1);
+                mp.put("list", sd.listafp());
+                break;
+            case "createpuesto":
+                nombre=request.getParameter("nombre");
+                String comision=request.getParameter("comision");
+                mp.put("rpta", 1);
+                mp.put("status", sd.createcargo(nombre, comision));
         }
+        Gson gson = new Gson();
+        out.println(gson.toJson(mp));
+        out.flush();
+        out.close();
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
