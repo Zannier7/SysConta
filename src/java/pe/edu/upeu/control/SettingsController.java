@@ -35,12 +35,18 @@ public class SettingsController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("application/json;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String op = request.getParameter("op");
         switch (op) {
             case "getuit":
                 mp=sd.getuit();
+                System.out.println("uit: "+mp.get("uit"));
+                break;
+            case "modifyuit":
+                String nuit=request.getParameter("nuit");
+                mp.put("rpta",1);
+                mp.put("status",sd.modifyuit(nuit));
                 break;
             case "createafp":
                 String nombre=request.getParameter("nombre");

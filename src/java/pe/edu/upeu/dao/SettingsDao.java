@@ -28,7 +28,7 @@ public class SettingsDao {
     String sql = "";
 
     public Map<String, Object> getuit() {
-        sql = "select * from planilla";
+        sql = "select * from data_empresa";
         Map<String, Object> s = new HashMap<>();
         try {
             ps = Conexion.getConexion().prepareStatement(sql);
@@ -44,25 +44,40 @@ public class SettingsDao {
             return s;
         }
     }
-    public int createafp(String nombre,String tipo,String interes){
-        int i=0;
-        sql="insert into afiliacion(tipo,nombre,interes) values (?,?,?)";
-        try{
-            ps=Conexion.getConexion().prepareStatement(sql);
-            ps.setString(i, tipo);
-            ps.setString(2, nombre);
-            ps.setDouble(3, Double.parseDouble(interes));
+
+    public int modifyuit(String valor) {
+        int i = 0;
+        sql = "update data_empresa set uit=? where 1";
+        try {
+            ps = Conexion.getConexion().prepareStatement(sql);
+            ps.setDouble(i, Double.parseDouble(valor));
             i=ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(SettingsDao.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
+        }
+        return i;
+    }
+
+    public int createafp(String nombre, String tipo, String interes) {
+        int i = 0;
+        sql = "insert into afiliacion(tipo,nombre,interes) values (?,?,?)";
+        try {
+            ps = Conexion.getConexion().prepareStatement(sql);
+            ps.setString(i, tipo);
+            ps.setString(2, nombre);
+            ps.setDouble(3, Double.parseDouble(interes));
+            i = ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SettingsDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
             Conexion.cerrar();
             return i;
         }
     }
+
     public ArrayList<Map<String, Object>> listafp() {
         sql = "select * from afiliacion";
-        ArrayList<Map<String,Object>> list=new ArrayList<>();
+        ArrayList<Map<String, Object>> list = new ArrayList<>();
         Map<String, Object> s = new HashMap<>();
         try {
             ps = Conexion.getConexion().prepareStatement(sql);
@@ -81,54 +96,58 @@ public class SettingsDao {
             return list;
         }
     }
-    public int modifyafp(String nombre,String interes,String id){
-        int i=0;
-        sql="update afiliacion set nombre=?,interes=? where idafiliacion=?";
-        try{
-            ps=Conexion.getConexion().prepareStatement(sql);
+
+    public int modifyafp(String nombre, String interes, String id) {
+        int i = 0;
+        sql = "update afiliacion set nombre=?,interes=? where idafiliacion=?";
+        try {
+            ps = Conexion.getConexion().prepareStatement(sql);
             ps.setString(1, nombre);
             ps.setDouble(2, Double.parseDouble(interes));
             ps.setInt(3, Integer.parseInt(id));
-            i=ps.executeUpdate();
+            i = ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(SettingsDao.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
+        } finally {
             Conexion.cerrar();
             return i;
         }
     }
-    public int deleteafp(String id){
-        int i=0;
-        sql="delete from afiliacion where idafiliacion=?";
-        try{
-            ps=Conexion.getConexion().prepareStatement(sql);
+
+    public int deleteafp(String id) {
+        int i = 0;
+        sql = "delete from afiliacion where idafiliacion=?";
+        try {
+            ps = Conexion.getConexion().prepareStatement(sql);
             ps.setInt(1, Integer.parseInt(id));
-            i=ps.executeUpdate();
+            i = ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(SettingsDao.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
+        } finally {
             Conexion.cerrar();
             return i;
         }
     }
-    public int createcargo(String nombre,String comision){
-        int i=0;
-        sql="insert into cargo(nombre,comision) values (?,?)";
-        try{
-            ps=Conexion.getConexion().prepareStatement(sql);
+
+    public int createcargo(String nombre, String comision) {
+        int i = 0;
+        sql = "insert into cargo(nombre,comision) values (?,?)";
+        try {
+            ps = Conexion.getConexion().prepareStatement(sql);
             ps.setString(i, nombre);
             ps.setDouble(2, Double.parseDouble(comision));
-            i=ps.executeUpdate();
+            i = ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(SettingsDao.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
+        } finally {
             Conexion.cerrar();
             return i;
         }
     }
+
     public ArrayList<Map<String, Object>> listcargo() {
         sql = "select * from cargo";
-        ArrayList<Map<String,Object>> list=new ArrayList<>();
+        ArrayList<Map<String, Object>> list = new ArrayList<>();
         Map<String, Object> s = new HashMap<>();
         try {
             ps = Conexion.getConexion().prepareStatement(sql);
@@ -146,32 +165,34 @@ public class SettingsDao {
             return list;
         }
     }
-    public int modifycargo(String nombre,String comision,String id){
-        int i=0;
-        sql="update cargo set nombre=?,comision=? where idcargo=?";
-        try{
-            ps=Conexion.getConexion().prepareStatement(sql);
+
+    public int modifycargo(String nombre, String comision, String id) {
+        int i = 0;
+        sql = "update cargo set nombre=?,comision=? where idcargo=?";
+        try {
+            ps = Conexion.getConexion().prepareStatement(sql);
             ps.setString(i, nombre);
             ps.setDouble(2, Double.parseDouble(comision));
             ps.setInt(3, Integer.parseInt(id));
-            i=ps.executeUpdate();
+            i = ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(SettingsDao.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
+        } finally {
             Conexion.cerrar();
             return i;
         }
     }
-    public int deletecargo(String id){
-        int i=0;
-        sql="delete from cargo where idcargo=?";
-        try{
-            ps=Conexion.getConexion().prepareStatement(sql);
+
+    public int deletecargo(String id) {
+        int i = 0;
+        sql = "delete from cargo where idcargo=?";
+        try {
+            ps = Conexion.getConexion().prepareStatement(sql);
             ps.setInt(1, Integer.parseInt(id));
-            i=ps.executeUpdate();
+            i = ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(SettingsDao.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
+        } finally {
             Conexion.cerrar();
             return i;
         }

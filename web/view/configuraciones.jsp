@@ -13,13 +13,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Configuraciones</title>
-        <script src="../resources/jquery-2.2.3.min.js" type="text/javascript"></script>
-        <link href="../resources/Material+Icons.css" rel="stylesheet" type="text/css"/>
-        <script src="../resources/material.js" type="text/javascript"></script>
-        <link href="../resources/material.min.css" rel="stylesheet" type="text/css"/>
-        <script src="../resources/material.min.js" type="text/javascript"></script>
-        <link href="../resources/style.css" rel="stylesheet" type="text/css"/>
-        <script src="../resources/script.js" type="text/javascript"></script>
+        <script src="./resources/jquery-2.2.3.min.js" type="text/javascript"></script>
+        <link href="./resources/Material+Icons.css" rel="stylesheet" type="text/css"/>
+        <script src="./resources/material.js" type="text/javascript"></script>
+        <link href="./resources/material.min.css" rel="stylesheet" type="text/css"/>
+        <script src="./resources/material.min.js" type="text/javascript"></script>
+        <link href="./resources/style.css" rel="stylesheet" type="text/css"/>
+        <script src="./resources/script.js" type="text/javascript"></script>
 
     </head>
     <body>
@@ -45,10 +45,14 @@
 
                     </div>
                     <div class="mdl-card__supporting-text">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <label id="uit">0.00</label>
+                            <label class="mdl-textfield__label" for="uit">UIT: </label>
+                        </div>
                         <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
                             <thead>
                                 <tr>
-                                    <th class="mdl-data-table__cell--non-numeric">DATOS UIT<th>PORCENTAJE</th>
+                                    <th class="mdl-data-table__cell--non-numeric">Impuesto a la renta<th>PORCENTAJE</th>
 
                                 </tr>
                             </thead>
@@ -80,16 +84,16 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <form action="uit" method="post">
+                        <form>
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input type="hidden" value="1" name="uit">
-                                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
-                                <label class="mdl-textfield__label" for="sample4">Ingresar nueva UIT.</label>
+                                <input type="hidden" value="modifyuit" name="opc">
+                                <input class="mdl-textfield__input" type="text" name="nuit" pattern="-?[0-9]*(\.[0-9]+)?" id="nuit">
+                                <label class="mdl-textfield__label" for="nuit">Ingresar nuevo valor UIT.</label>
                                 <span class="mdl-textfield__error">Se requiere de nùmeros!</span>
                             </div>
                             <div class="mdl-card__actions mdl-card--border">
                                 <center>
-                                    <button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color: #1976d2">
+                                    <button id="muitbtn" type="button" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color: #1976d2">
                                         MODIFICAR UIT
                                     </button>
                                 </center>
@@ -321,7 +325,7 @@
                                 <label class="mdl-textfield__label" for="mdl-name">Ver Datos </label>
                                 <span class="mdl-textfield__error">The field can not be empty!</span>
                             </div>
-                           
+
                         </form>
                     </div>
                     <div class="mdl-card__actions mdl-card--border">
@@ -338,6 +342,14 @@
                 </div>
             </div>
             <script>
+                $(document).ready(function(){
+                    $.post("../settings?op=getuit",function(obj){
+                        console.log(obj);
+                        var uit=obj.uit;
+                        $("#uit").empty();
+                        $("#uit").append(uit);
+                    })
+                });
                 var modal = document.getElementById('mdl-custom-modal'),
                         btn = document.getElementById("mdl-custom-btn"),
                         btn1 = document.getElementById("mdl-custom-btn"),
@@ -388,13 +400,13 @@
                 }
             </script>
             <%
-                String cod=request.getParameter("iut");
-                Connection cnx=null;
-                ResultSet rs=null;
-                Statement sta=null;
+                String cod = request.getParameter("iut");
+                Connection cnx = null;
+                ResultSet rs = null;
+                Statement sta = null;
                 Class.forName("com.mysql.jdbc.Driver");
-               
-                
+
+
             %>
 
 

@@ -19,7 +19,7 @@
     </head>
     <body>
         <div class="mdl-grid">
-            <div id="config" class="mdl-card mdl-shadow--8dp mdl-cell mdl-cell--4-col mdl-cell--1-offset mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="max-width: 256px;cursor: pointer">
+            <div onclick="redirect('main?opc=3')"id="config" class="mdl-card mdl-shadow--8dp mdl-cell mdl-cell--4-col mdl-cell--1-offset mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="max-width: 256px;cursor: pointer">
                 <div class="mdl-card__title" style="background: #e53935;text-align: center;display: block">
                     <i style="color: white; font-size: 140px" class="large material-icons">settings</i>
                 </div>
