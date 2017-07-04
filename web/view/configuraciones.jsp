@@ -20,6 +20,8 @@
         <script src="./resources/material.min.js" type="text/javascript"></script>
         <link href="./resources/style.css" rel="stylesheet" type="text/css"/>
         <script src="./resources/script.js" type="text/javascript"></script>
+        <link href="resources/pnotify.custom.min.css" rel="stylesheet" type="text/css"/>
+        <script src="resources/pnotify.custom.min.js" type="text/javascript"></script>
 
     </head>
     <body>
@@ -69,7 +71,7 @@
                             </div>
 
                             <center>
-                                <button id="muitbtn" type="button" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color: #1976d2">
+                                <button onclick="mod()" id="muitbtn" type="button" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color: #1976d2">
                                     MODIFICAR UIT
                                 </button>
 
@@ -262,25 +264,16 @@
                     <div class="mdl-card__title mdl-card--expand">
                         <form action="#" st>
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" pattern="^\s*[0-9a-zA-Z][0-9a-zA-Z ]*$" id="mdl-name">
-                                <label class="mdl-textfield__label" for="mdl-name">Name...</label>
-                                <span class="mdl-textfield__error">The field can not be empty!</span>
+
+                                <label class="mdl-textfield__label" for="afp">AFP: </label>
+
                             </div>
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" pattern="^[\s()+-]*([0-9][\s()+-]*){6,20}$" id="mdl-phone">
-                                <label class="mdl-textfield__label" for="mdl-phone">Phone...</label>
-                                <span class="mdl-textfield__error">Input is not a number!</span>
-                            </div>
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" pattern='^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$' id="mdl-email">
-                                <label class="mdl-textfield__label" for="mdl-email">E-mail...</label>
-                                <span class="mdl-textfield__error">E-mail is not valid!</span>
-                            </div>
+
                         </form>
                     </div>
                     <div class="mdl-card__actions mdl-card--border">
                         <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                            Submit
+                            Aceptar
                         </a>
                     </div>
                     <div class="mdl-card__menu">
@@ -323,32 +316,37 @@
                         var uit = obj.uit;
                         $("#uit").empty();
                         $("#uit").append(uit);
-                    })
+                    });
                 });
-                var modal = document.getElementById('mdl-custom-modal'),
-                        btn = document.getElementById("mdl-custom-btn"),
-                        btn1 = document.getElementById("mdl-custom-btn"),
-                        close = document.getElementsByClassName("mdl-custom-close")[0];
+                function mod() {
+                    $.post("./settings?op=modifyuit&nuit=" + $("#nuit").val(), function (obj) {
+                        console.log(obj);
+                        if (obj.rpta == 1 && obj.status == 1) {
+                            var uit = obj.uit.uit;
+                            $("#uit").empty();
+                            $("#uit").append(uit);
+                            new PNotify({
+                                title: 'Perfecto!',
+                                text: 'El valor de la UIT ha sido modificado',
+                                type: 'success'
+                            });
+                        } else {
+                            new PNotify({
+                                title: 'Algo salió mal',
+                                text: 'No se pudo modificar el valor UIT',
+                                type: 'error'
+                            });
+                        }
+                    });
 
-                btn.onclick = function () {
-                    'use strict';
-                    modal.style.display = "block";
-                }
-
-                close.onclick = function () {
-                    'use strict';
-                    modal.style.display = "none";
-                }
-
-                /* Use if you whant to close modal when click outside of modal window */
-                window.onclick = function (event) {
-                    'use strict';
-
-                    if (event.target == modal) {
-                        modal.style.display = "none";
-                    }
+                    //dialog.showModal();
                 }
             </script>
+
+
+
+
+
             <script>
                 var modal1 = document.getElementById('mdl-custom-modal'),
                         btn = document.getElementById("mdl-custom-btn"),

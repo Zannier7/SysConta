@@ -47,6 +47,7 @@ public class SettingsController extends HttpServlet {
                 String nuit=request.getParameter("nuit");
                 mp.put("rpta",1);
                 mp.put("status",sd.modifyuit(nuit));
+                mp.put("uit",sd.getuit());
                 break;
             case "createafp":
                 String nombre=request.getParameter("nombre");
