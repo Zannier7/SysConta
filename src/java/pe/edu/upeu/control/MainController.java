@@ -43,7 +43,7 @@ public class MainController extends HttpServlet {
 
         switch (opc) {
             case 1:
-                pagina = "/view/diarybook.jsp";
+                pagina = "/view/prueba.jsp";
                 dispatcher = getServletContext().getRequestDispatcher(pagina);
                 dispatcher.forward(request, response);
                 break;
