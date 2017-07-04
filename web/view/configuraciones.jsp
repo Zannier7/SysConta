@@ -13,13 +13,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Configuraciones</title>
-        <script src="./resources/jquery-2.2.3.min.js" type="text/javascript"></script>
-        <link href="./resources/Material+Icons.css" rel="stylesheet" type="text/css"/>
-        <script src="./resources/material.js" type="text/javascript"></script>
-        <link href="./resources/material.min.css" rel="stylesheet" type="text/css"/>
-        <script src="./resources/material.min.js" type="text/javascript"></script>
-        <link href="./resources/style.css" rel="stylesheet" type="text/css"/>
-        <script src="./resources/script.js" type="text/javascript"></script>
+        <script src="../resources/jquery-2.2.3.min.js" type="text/javascript"></script>
+        <link href="../resources/Material+Icons.css" rel="stylesheet" type="text/css"/>
+        <script src="../resources/material.js" type="text/javascript"></script>
+        <link href="../resources/material.min.css" rel="stylesheet" type="text/css"/>
+        <script src="../resources/material.min.js" type="text/javascript"></script>
+        <link href="../resources/style.css" rel="stylesheet" type="text/css"/>
+        <script src="../resources/script.js" type="text/javascript"></script>
 
     </head>
     <body>
